@@ -1,4 +1,4 @@
------------------ Considerações gerais: -----------------
+﻿----------------- Considerações gerais: -----------------
 
 - Pus o 'Contacto' e 'Hobbies' do Cliente, 'Categoria' da Viagem e 'Contacto' do Hotel como atributos multivalorados. A meu ver, não aumenta muito a complexidade, não sei como é ao nível do ETL, mas tentei fazer tudo direitinho. Mudem o que quiserem! Pode-se considerar que um cliente só tem um contacto, por exemplo
 
@@ -14,3 +14,12 @@
 
 
 ----------------> Concordo com tudo o que alterarem, deixei os modelos por isso podem alterar vocês ou peçam-me para alterar 
+
+
+APONTAMENTOS (VITOR):
+- cardinalidade errada Viagem-Venda
+- Viagem tem que ter a pensão, ao invés do Hotel
+- acho que devemos reconsiderar da importância de Voo:
+	-> um voo é algo único com partida e destino
+	-> a unica coisa que podiamos estabelecer relação seria o pais/continente
+	-> mais valia colocar essa info associada ao Hotel, na morada
