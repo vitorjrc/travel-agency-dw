@@ -1,0 +1,6 @@
+just open cmd.exe w/ administrator and
+$ net start MongoDB
+
+to stop the servive
+$ net stop MongoDB
+

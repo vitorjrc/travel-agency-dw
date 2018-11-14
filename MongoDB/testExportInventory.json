@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5bec667bc19707491cf80f0e"},"item":"journal","qty":{"$numberInt":"25"},"size":{"h":{"$numberInt":"14"},"w":{"$numberInt":"21"},"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5bec667bc19707491cf80f0f"},"item":"notebook","qty":{"$numberInt":"50"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"A"}
+{"_id":{"$oid":"5bec667bc19707491cf80f10"},"item":"paper","qty":{"$numberInt":"100"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5bec667bc19707491cf80f11"},"item":"planner","qty":{"$numberInt":"75"},"size":{"h":{"$numberDouble":"22.85"},"w":{"$numberInt":"30"},"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5bec667bc19707491cf80f12"},"item":"postcard","qty":{"$numberInt":"45"},"size":{"h":{"$numberInt":"10"},"w":{"$numberDouble":"15.25"},"uom":"cm"},"status":"A"}
