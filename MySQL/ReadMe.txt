@@ -10,7 +10,7 @@
 
 - Na Viagem, o 'Preço' é o preço individual. A Época tem os valores N, P, F, O (explicado no dicionario)
 
-- No modelo lógico aparece TINYINT em vez de BOOLEAN no 'Estado' da Viagem
+- No modelo lógico aparece TINYINT em vez de BOOLEAN no 'Estado' da Viagem - ELIMINADO POR CAUSA DE NAO HAVER LIMITES DE PACKS
 
 
 ----------------> Concordo com tudo o que alterarem, deixei os modelos por isso podem alterar vocês ou peçam-me para alterar 
