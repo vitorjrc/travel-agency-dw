@@ -12,6 +12,7 @@
 
 {"_id":{"$oid":"5bedb80ce6f72f2778abadf1"},"Nome":"Amanda Correia","Contacto":"914621900","Email":"amandacorreia@gmail.com","NIF":"211515035","Hobbies":["Fotografia","Cozinhar","Viajar"],"Profissão":"Jornalista","Endereço":{"Rua":"Avenida Sacadura Cabral 42","Localidade":"Lisboa","Código Postal":"1600-802"}}
 
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf2"},"Nome":"Luís Barbosa","Contacto":"919962178","Email":"luisbarbosa@gmail.com","NIF":"267167970","Hobbies":["Yoga","Correr","Viajar"],"Profissão":"Médico","Endereço":{"Rua":"Avenida Visconde Valmor 46","Localidade":"Torres Vedras","Código Postal":"2560-352"}}
 
 {"_id":{"$oid":"5bedb80ce6f72f2778abadf3"},"Nome":"Tiago Gonçalves","Contacto":"913917672","Email":"tiagogoncalves@gmail.com","NIF":"206232640","Hobbies":["Poker","Fotografia","Viajar"],"Profissão":"Serralheiro","Endereço":{"Rua":"Rua Pinhão 20","Localidade":"Setúbal","Código Postal":"2910-858"}}
 
