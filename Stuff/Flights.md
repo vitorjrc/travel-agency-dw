@@ -6,7 +6,7 @@ Destinos desde Porto
 | SYD | Sydney, Australia        | Aeroporto de Sydney                       | Emirates         | 26      |
 | GIG | Rio de Janeiro, Brasil   | Aeroporto Internacional do Rio de Janeiro | TAP              | 12      |
 | HRG | Hurghada, Egipto         | Aeroporto Internacional de Hurghada       | Turkish Airlines | 12      |
-| HND | Tóquio, Japão            | Aeroporto Internacional de Tóquio         | irFrance         | 18      |
+| HND | Tóquio, Japão            | Aeroporto Internacional de Tóquio         | AirFrance        | 18      |
 | DXB | Dubai, Emirados          | Aeroporto Internacional de Dubai          | Emirates         | 9       |
 | MBJ | Jamaica                  | Aeroporto Internacional Sangster          | Air Canada       | 36      |
 | HKT | Phuket, Tailandia        | Aeroporto Internacional de Phuket         | TAP              | 19      |
