@@ -1,0 +1,46 @@
+[
+{
+    "Codigo" : 1,
+    "Nome" : "Estrelicius",
+    "Contacto" : 111999999999,
+    "Email" : "estrelicius@hotels.com",
+    "Estrelas" : 5,
+    "Rua" : "Rua do Estrelicius",
+    "Local" : "Local do Estrelicius",
+    "CodPostal" : "",
+    "Pais" : "",
+    "Pensoes" : [ 
+        {
+        "Codigo" : 1,
+        "Nome" : "SA"
+        },
+        {
+        "Codigo" : 1,
+        "Nome" : "PA"
+        }
+    ],
+    "Viagens" : [ 
+        {
+        "Codigo" : 1,
+        "Preco" : 1000,
+        "Nr_Dias" : 5,
+        "Epoca" : "F",
+        "Data" : "21-06-2017",
+        "Pais_Part" : "Portugal",
+        "Pais_Dest" : "",
+        "Pensao" : "PA"
+        },
+        {
+        "Codigo" : 2,
+        "Preco" : 2000,
+        "Nr_Dias" : 7,
+        "Epoca" : "N",
+        "Data" : "23-10-2016",
+        "Pais_Part" : "Portugal",
+        "Pais_Dest" : "",
+        "Pensao" : "SA"
+        }
+    ]
+}
+]
+
