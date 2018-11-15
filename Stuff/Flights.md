@@ -18,7 +18,7 @@ Destinos desde Porto
 | ATH | Atenas, Grécia           | Aeroporto Internacional de Atenas         | AirFrance        | 7       |
 | FCO | Roma, Itália             | Aeroporto Internacional de Roma           | TAP              | 5       |
 | STN | Londres, Reino Unido     | Aeroporto de Londres Stansted             | Ryanair          | 3       |
-| CDG | Paris, França            | Aeroporto de Paris-Charles de Gaylle      | Ryanair          | 2       |
+| CDG | Paris, França            | Aeroporto de Paris-Charles de Gaulle      | Ryanair          | 2       |
 | PMI | Maiorca, Ilhas Baleares  | Aeroporto de Palma de Maiorca             | TAP              | 4       |
 | JTR | Santorini, Grécia        | Aeroporto Internacional de Santorini      | TAP              | 8       |
 | FLR | Florença, Itália         | Aeroporto Florença-Peretola               | TAP              | 5       |
@@ -50,7 +50,7 @@ Destinos desde Lisboa
 | ATH | Atenas, Grécia           | Aeroporto Internacional de Atenas         | AirFrance        | 7       |
 | FCO | Roma, Itália             | Aeroporto Internacional de Roma           | Ryanair          | 3       |
 | STN | Londres, Reino Unido     | Aeroporto de Londres Stansted             | Ryanair          | 3       |
-| CDG | Paris, França            | Aeroporto de Paris-Charles de Gaylle      | Air France       | 3       |
+| CDG | Paris, França            | Aeroporto de Paris-Charles de Gaulle      | Air France       | 3       |
 | PMI | Maiorca, Ilhas Baleares  | Aeroporto de Palma de Maiorca             | Iberia           | 4       |
 | JTR | Santorini, Grécia        | Aeroporto Internacional de Santorini      | TAP              | 8       |
 | FLR | Florença, Itália         | Aeroporto Florença-Peretola               | TAP              | 3       |
