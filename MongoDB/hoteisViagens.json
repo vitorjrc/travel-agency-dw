@@ -1,5 +1,6 @@
 [
 {
+    // exemplo
     "Codigo" : 1,
     "Nome" : "Estrelicius",
     "Contacto" : 111999999999,
@@ -39,6 +40,54 @@
         "Pais_Part" : "Portugal",
         "Pais_Dest" : "",
         "Pensao" : "SA"
+        }
+    ]
+},
+{
+    // sydney
+    "Codigo" : 2,
+    "Nome" : "Sidnius",
+    "Contacto" : 222999999999,
+    "Email" : "sidnius@hotels.com",
+    "Estrelas" : 5,
+    "Rua" : "Rua do Sidnius",
+    "Local" : "Local do Sidnius",
+    "CodPostal" : "2222",
+    "Pais" : "Australia",
+    "Pensoes" : [ 
+        {
+            "Codigo" : 1,
+            "Nome" : "SA"
+        },
+        {
+            "Codigo" : 2,
+            "Nome" : "PA"
+        },
+        {
+            "Codigo" : 3,
+            "Nome" : "MP"
+        }
+    ],
+    "Viagens" : [ 
+        {
+            "Codigo" : 3,
+            "Preco" : 1200,
+            "Nr_Dias" : 4,
+            "Epoca" : "F",
+            "Data" : "23-06-2017",
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "",
+            "Pensao" : "PA"
+        },
+        {
+            "Codigo" : 4,
+            "Preco" : 2400,
+            "Nr_Dias" : 6,
+            "Epoca" : "N",
+            "Data" : "17-12-2016",
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "",
+            "Pensao" : "MP"
         }
     ]
 }
