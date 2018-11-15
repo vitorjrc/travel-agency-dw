@@ -1,57 +1,57 @@
-ÔªøID;Destino;Aeroporto de Destino;Companhia;Dura√ß√£o
-SYD;Sydney, Australia;Aeroporto de Sydney;Emirates;26
-GIG;Rio de Janeiro, Brasil;Aeroporto Internacional do Rio de Janeiro;TAP;12
-HRG;Hurghada, Egipto;Aeroporto Internacional de Hurghada;Turkish Airlines;12
-HND;T√≥quio, Jap√£o;Aeroporto Internacional de T√≥quio;irFrance;18
-DXB;Dubai, Emirados;Aeroporto Internacional de Dubai;Emirates;9
-MBJ;Jamaica;Aeroporto Internacional Sangster;Air Canada;36
-HKT;Phuket, Tailandia;Aeroporto Internacional de Phuket;TAP;19
-JFK;Nova Iorque, EUA;Aeroporto Internacional J. F. Kennedy;TAP;12
-IST;Istambul, Turquia;Aeroporto de Istambul Ataturk;AirFrance;9
-RAK;Marraquexe, Marrocos;Aeroporto de Marrakech-Menara;TAP;4
-PRG;Praga, Rep.Checa;Aeroporto de Praga;TAP;6
-BCN;Barcelona, Espanha;Aeroporto de Barcelona-El Prat;Ryanair;2
-ATH;Atenas, Gr√©cia;Aeroporto Internacional de Atenas;AirFrance;7
-FCO;Roma, It√°lia;Aeroporto Internacional de Roma;TAP;5
-STN;Londres, Reino Unido;Aeroporto de Londres Stansted;Ryanair;3
-CDG;Paris, Fran√ßa;Aeroporto de Paris-Charles de Gaylle;Ryanair;2
-PMI;Maiorca, Ilhas Baleares;Aeroporto de Palma de Maiorca;TAP;4
-JTR;Santorini, Gr√©cia;Aeroporto Internacional de Santorini;TAP;8
-FLR;Floren√ßa, It√°lia;Aeroporto Floren√ßa-Peretola;TAP;5
-VCE;Veneza, It√°lia;Aeroporto Internacional Marco Polo;AirFrance;6
-TFN;Tenerife, Ilhas Can√°rias;Aeroporto de Tenerife Norte;Iberia;5
-AMS;Amesterd√£o, Holanda;Aeroporto de Amesterd√£o Schiphol;TAP;3
-BUD;Budapeste, Hungria;Aeroporto de Budapeste Ferenc Liszt;AirFrance;6
-FNC;Madeira, Portugal;Aeroporto Internacional da Madeira;TAP;2
-TXL;Berlim, Alemanha;Aeroporto de Berlim-Tegel;AirFrance;5
-LED;S√£o Petersburgo, R√∫ssia;Aeroporto de Pulkovo;TAP;9
-VIE;Viena, √Åustria;Aeroporto Internacional de Viena;Iberia;5
-
-ID;Destino;Aeroporto de Destino;Companhia;Dura√ß√£o
-SYD;Sydney, Australia;Aeroporto de Sydney;Emirates;23
-GIG;Rio de Janeiro, Brasil;Aeroporto Internacional do Rio de Janeiro;TAP;10
-HRG;Hurghada, Egipto;Aeroporto Internacional de Hurghada;Turkish Airlines;8
-HND;T√≥quio, Jap√£o;Aeroporto Internacional de T√≥quio;AirFrance;16
-DXB;Dubai, Emirados;Aeroporto Internacional de Dubai;Emirates;7
-MBJ;Jamaica;Aeroporto Internacional Sangster;Air Canada;34
-HKT;Phuket, Tailandia;Aeroporto Internacional de Phuket;Emirates;18
-JFK;Nova Iorque, EUA;Aeroporto Internacional J. F. Kennedy;TAP;8
-IST;Istambul, Turquia;Aeroporto de Istambul Ataturk;AirFrance;9
-RAK;Marraquexe, Marrocos;Aeroporto de Marrakech-Menara;TAP;2
-PRG;Praga, Rep.Checa;Aeroporto de Praga;TAP;3
-BCN;Barcelona, Espanha;Aeroporto de Barcelona-El Prat;Iberia;2
-ATH;Atenas, Gr√©cia;Aeroporto Internacional de Atenas;AirFrance;7
-FCO;Roma, It√°lia;Aeroporto Internacional de Roma;Ryanair;3
-STN;Londres, Reino Unido;Aeroporto de Londres Stansted;Ryanair;3
-CDG;Paris, Fran√ßa;Aeroporto de Paris-Charles de Gaylle;Air France;3
-PMI;Maiorca, Ilhas Baleares;Aeroporto de Palma de Maiorca;Iberia;4
-JTR;Santorini, Gr√©cia;Aeroporto Internacional de Santorini;TAP;8
-FLR;Floren√ßa, It√°lia;Aeroporto Floren√ßa-Peretola;TAP;3
-VCE;Veneza, It√°lia;Aeroporto Internacional Marco Polo;TAP;3
-TFN;Tenerife, Ilhas Can√°rias;Aeroporto de Tenerife Norte;Iberia;6
-AMS;Amesterd√£o, Holanda;Aeroporto de Amesterd√£o Schiphol;TAP;3
-BUD;Budapeste, Hungria;Aeroporto de Budapeste Ferenc Liszt;TAP;3
-FNC;Madeira, Portugal;Aeroporto Internacional da Madeira;TAP;2
-TXL;Berlim, Alemanha;Aeroporto de Berlim-Tegel;TAP;4
-LED;S√£o Petersburgo, R√∫ssia;Aeroporto de Pulkovo;TAP;9
-VIE;Viena, √Åustria;Aeroporto Internacional de Viena;TAP;4
+ID	Destino	Aeroporto de Destino	Companhia	DuraÁ„o
+PORSYD	Sydney, Australia	Aeroporto de Sydney	Emirates	26
+PORGIG	Rio de Janeiro, Brasil	Aeroporto Internacional do Rio de Janeiro	TAP	12
+PORHRG	Hurghada, Egipto	Aeroporto Internacional de Hurghada	Turkish Airlines	12
+PORHND	TÛquio, Jap„o	Aeroporto Internacional de TÛquio	AirFrance	18
+PORDXB	Dubai, Emirados	Aeroporto Internacional de Dubai	Emirates	9
+PORMBJ	Jamaica	Aeroporto Internacional Sangster	Air Canada	36
+PORHKT	Phuket, Tailandia	Aeroporto Internacional de Phuket	TAP	19
+PORJFK	Nova Iorque, EUA	Aeroporto Internacional J. F. Kennedy	TAP	12
+PORIST	Istambul, Turquia	Aeroporto de Istambul Ataturk	AirFrance	9
+PORRAK	Marraquexe, Marrocos	Aeroporto de Marrakech-Menara	TAP	4
+PORPRG	Praga, Rep.Checa	Aeroporto de Praga	TAP	6
+PORBCN	Barcelona, Espanha	Aeroporto de Barcelona-El Prat	Ryanair	2
+PORATH	Atenas, GrÈcia	Aeroporto Internacional de Atenas	AirFrance	7
+PORFCO	Roma, It·lia	Aeroporto Internacional de Roma	TAP	5
+PORSTN	Londres, Reino Unido	Aeroporto de Londres Stansted	Ryanair	3
+PORCDG	Paris, FranÁa	Aeroporto de Paris-Charles de Gaulle	Ryanair	2
+PORPMI	Maiorca, Ilhas Baleares	Aeroporto de Palma de Maiorca	TAP	4
+PORJTR	Santorini, GrÈcia	Aeroporto Internacional de Santorini	TAP	8
+PORFLR	FlorenÁa, It·lia	Aeroporto FlorenÁa-Peretola	TAP	5
+PORVCE	Veneza, It·lia	Aeroporto Internacional Marco Polo	AirFrance	6
+PORTFN	Tenerife, Ilhas Can·rias	Aeroporto de Tenerife Norte	Iberia	5
+PORAMS	Amesterd„o, Holanda	Aeroporto de Amesterd„o Schiphol	TAP	3
+PORBUD	Budapeste, Hungria	Aeroporto de Budapeste Ferenc Liszt	AirFrance	6
+PORFNC	Madeira, Portugal	Aeroporto Internacional da Madeira	TAP	2
+PORTXL	Berlim, Alemanha	Aeroporto de Berlim-Tegel	AirFrance	5
+PORLED	S„o Petersburgo, R˙ssia	Aeroporto de Pulkovo	TAP	9
+PORVIE	Viena, ¡ustria	Aeroporto Internacional de Viena	Iberia	5
+				
+ID	Destino	Aeroporto de Destino	Companhia	DuraÁ„o
+LISSYD	Sydney, Australia	Aeroporto de Sydney	Emirates	23
+LISGIG	Rio de Janeiro, Brasil	Aeroporto Internacional do Rio de Janeiro	TAP	10
+LISHRG	Hurghada, Egipto	Aeroporto Internacional de Hurghada	Turkish Airlines	8
+LISHND	TÛquio, Jap„o	Aeroporto Internacional de TÛquio	AirFrance	16
+LISDXB	Dubai, Emirados	Aeroporto Internacional de Dubai	Emirates	7
+LISMBJ	Jamaica	Aeroporto Internacional Sangster	Air Canada	34
+LISHKT	Phuket, Tailandia	Aeroporto Internacional de Phuket	Emirates	18
+LISJFK	Nova Iorque, EUA	Aeroporto Internacional J. F. Kennedy	TAP	8
+LISIST	Istambul, Turquia	Aeroporto de Istambul Ataturk	AirFrance	9
+LISRAK	Marraquexe, Marrocos	Aeroporto de Marrakech-Menara	TAP	2
+LISPRG	Praga, Rep.Checa	Aeroporto de Praga	TAP	3
+LISBCN	Barcelona, Espanha	Aeroporto de Barcelona-El Prat	Iberia	2
+LISATH	Atenas, GrÈcia	Aeroporto Internacional de Atenas	AirFrance	7
+LISFCO	Roma, It·lia	Aeroporto Internacional de Roma	Ryanair	3
+LISSTN	Londres, Reino Unido	Aeroporto de Londres Stansted	Ryanair	3
+LISCDG	Paris, FranÁa	Aeroporto de Paris-Charles de Gaulle	Air France	3
+LISPMI	Maiorca, Ilhas Baleares	Aeroporto de Palma de Maiorca	Iberia	4
+LISJTR	Santorini, GrÈcia	Aeroporto Internacional de Santorini	TAP	8
+LISFLR	FlorenÁa, It·lia	Aeroporto FlorenÁa-Peretola	TAP	3
+LISVCE	Veneza, It·lia	Aeroporto Internacional Marco Polo	TAP	3
+LISTFN	Tenerife, Ilhas Can·rias	Aeroporto de Tenerife Norte	Iberia	6
+LISAMS	Amesterd„o, Holanda	Aeroporto de Amesterd„o Schiphol	TAP	3
+LISBUD	Budapeste, Hungria	Aeroporto de Budapeste Ferenc Liszt	TAP	3
+LISFNC	Madeira, Portugal	Aeroporto Internacional da Madeira	TAP	2
+LISTXL	Berlim, Alemanha	Aeroporto de Berlim-Tegel	TAP	4
+LISLED	S„o Petersburgo, R˙ssia	Aeroporto de Pulkovo	TAP	9
+LISVIE	Viena, ¡ustria	Aeroporto Internacional de Viena	TAP	4
