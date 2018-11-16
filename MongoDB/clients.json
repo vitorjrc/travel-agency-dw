@@ -1,0 +1,31 @@
+{"_id":{"$oid":"5bedb0e773069427786b3de9"},"Nome":"Alexandre Ribeiro","Contacto":"912545385","Email":"alexandreribeiro@gmail.com","NIF":"205493939","Hobbies":["Poker","Ler","Cozinhar"],"Profissão":"Diretor Executivo","Endereço":{"Rua":"Rua Armazéns 50","Localidade":"Porto","Código Postal":"4050-064"}}
+
+{"_id":{"$oid":"5bedb428e6f72f2778abadec"},"Nome":"Henrique Lopes","Contacto":"910172697","Email":"henriquelopes@gmail.com","NIF":"268419086","Hobbies":["Cozinhar","Andar de Bicicleta","Ver Futebol"],"Profissão":"Engenheiro Civil","Endereço":{"Rua":"Travessa Pombal 83","Localidade":"Celorico da Beira","Código Postal":"6360-309"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abaded"},"Nome":"João Cardoso","Contacto":"910999727","Email":"joaocardoso@gmail.com","NIF":"296911429","Hobbies":["Pintar","Correr","Ver Futebol"],"Profissão":"Pintor","Endereço":{"Rua":"Quinta Beloura 52","Localidade":"Sintra","Código Postal":"2710-608"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadee"},"Nome":"Maria Martins","Contacto":"918501366","Email":"mariamartins@gmail.com","NIF":"263627217","Hobbies":["Fotografia","Viajar","Passear"],"Profissão":"Estilista","Endereço":{"Rua":"Avenida Miguel Bombarda 52","Localidade":"Lisboa","Código Postal":"1549-007"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadef"},"Nome":"Bruno Pinto","Contacto":"912983221","Email":"brunopinto@gmail.com","NIF":"243132891","Hobbies":["Poker","Cozinhar","Ver Futebol"],"Profissão":"Professor","Endereço":{"Rua":"Rua Doutor Paulo Quintela 87","Localidade":"Coimbra","Código Postal":"3030-257"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf0"},"Nome":"Tomás Carvalho","Contacto":"918474357","Email":"tomascarvalho@gmail.com","NIF":"224257722","Hobbies":["Xadrez","Cozinhar","Ver F1"],"Profissão":"Engenheiro Informático","Endereço":{"Rua":"Rua Tradição 61","Localidade":"Palmela","Código Postal":"2950-274"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf1"},"Nome":"Amanda Correia","Contacto":"914621900","Email":"amandacorreia@gmail.com","NIF":"211515035","Hobbies":["Fotografia","Cozinhar","Viajar"],"Profissão":"Jornalista","Endereço":{"Rua":"Avenida Sacadura Cabral 42","Localidade":"Lisboa","Código Postal":"1600-802"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf2"},"Nome":"Luís Barbosa","Contacto":"919962178","Email":"luisbarbosa@gmail.com","NIF":"267167970","Hobbies":["Yoga","Correr","Viajar"],"Profissão":"Médico","Endereço":{"Rua":"Avenida Visconde Valmor 46","Localidade":"Torres Vedras","Código Postal":"2560-352"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf3"},"Nome":"Tiago Gonçalves","Contacto":"913917672","Email":"tiagogoncalves@gmail.com","NIF":"206232640","Hobbies":["Poker","Fotografia","Viajar"],"Profissão":"Serralheiro","Endereço":{"Rua":"Rua Pinhão 20","Localidade":"Setúbal","Código Postal":"2910-858"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf4"},"Nome":"Bruna Carvalho","Contacto":"912095579","Email":"brunacarvalho@gmail.com","NIF":"272695882","Hobbies":["Leitura","Fotografia","Andar de Bicicleta"],"Profissão":"Assistente Técnico","Endereço":{"Rua":"Rua Pelourinho 99","Localidade":"Viseu","Código Postal":"3500-392"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf5"},"Nome":"Beatriz Castro","Contacto":"914213226","Email":"beatrizcastro@gmail.com","NIF":"285049496","Hobbies":["Snooker","Viajar","Costura"],"Profissão":"Agricultor","Endereço":{"Rua":"Rua Sarmento Pimentel 119","Localidade":"Monte de Caparica","Código Postal":"2825-065"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf6"},"Nome":"Igor Santos","Contacto":"911342122","Email":"igorsantos@gmail.com","NIF":"209249285","Hobbies":["Leitura","Viajar","Cozinhar"],"Profissão":"Personal Trainer","Endereço":{"Rua":"Rua Sousa Lopes 74","Localidade":"Lisboa","Código Postal":"1350-020"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf7"},"Nome":"Danilo Lima","Contacto":"912328152","Email":"danilolima@gmail.com","NIF":"263148440","Hobbies":["Cantar","Escrever","Leitura"],"Profissão":"Operário","Endereço":{"Rua":"Rua Tapada Marinha 93","Localidade":"Perafita","Código Postal":"4455-559"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf8"},"Nome":"Tomás Oliveira","Contacto":"915280980","Email":"tomasoliveira@gmail.com","NIF":"277405378","Hobbies":["Cantar","Xadrez","Fotografia"],"Profissão":"Enfermeiro","Endereço":{"Rua":"Avenida Madre Andaluz 120","Localidade":"Cartaxo","Código Postal":"2070-132"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf9"},"Nome":"Diogo Almeida","Contacto":"910272535","Email":"diogoalmeida@gmail.com","NIF":"265623146","Hobbies":["Correr","Ler","Fotografia"],"Profissão":"Relações Públicas","Endereço":{"Rua":"Rua Muro Bacalhoeiros 4","Localidade":"Porto","Código Postal":"4250-437"}}
+
+{"_id":{"$oid":"5bedb80ce6f72f2778abadf9"},"Nome":"Lucas Melo","Contacto":"917998223","Email":"lucasmelo@gmail.com","NIF":"232634467","Hobbies":["Correr","Ver Futebol","Viajar"],"Profissão":"Mecânico","Endereço":{"Rua":"Praça Teófilo Braga 6","Localidade":"Loures","Código Postal":"2670-489"}}
