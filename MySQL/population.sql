@@ -5,9 +5,7 @@
 -- ------------------------------------------------------
 --
 -- Esquema: "belomundo"
-USE `belomundo` ;
-
-
+USE `belomundo`;
 --
 -- Permissão para fazer operações de remoção de dados.
 SET SQL_SAFE_UPDATES = 0;
@@ -23,50 +21,50 @@ ALTER TABLE belomundo.LocalHotel CONVERT TO CHARACTER SET utf8;
 ALTER TABLE belomundo.Pensao CONVERT TO CHARACTER SET utf8;
 ALTER TABLE belomundo.Rota CONVERT TO CHARACTER SET utf8;
 
-DELETE FROM Cliente;
-DELETE FROM LocalCliente;
-DELETE FROM Hobbies;
-DELETE FROM Venda; 
-DELETE FROM Viagem;
-DELETE FROM Categoria;
-DELETE FROM Hotel;
-DELETE FROM LocalHotel;
-DELETE FROM Pensao;
-DELETE FROM Rota;
 
+DELETE FROM Categoria;
+DELETE FROM Viagem;
+DELETE FROM Venda;
+DELETE FROM Hobbies; 
+DELETE FROM Cliente;
+DELETE FROM Pensao;
+DELETE FROM Hotel;
+DELETE FROM Rota;
+DELETE FROM LocalCliente;
+DELETE FROM LocalHotel;
 
 
 INSERT INTO LocalCliente
-	(Id, Rua, Local, Cod_Postal)
+	(Id, Designacao)
 	VALUES
-		(1, 'Maia'), --Porto
-		(2, 'Póvoa de Varzim'), --Porto
-		(3, 'Mafra'), --Lisboa
-		(4, 'Portimão'), --Faro
-		(5, 'Guimarães'), --Braga
-		(6, 'Sintra'), --Lisboa
-		(7, 'Lamego'), --Viseu
-		(8, 'Boticas'), --Vila Real
-		(9, 'Penafiel'), --Porto
-		(10, 'Oeiras'), --Lisboa
-		(11, 'Porto'), --Porto
-		(12, 'Vila Nova de Famalicão'), --Braga
-		(13, 'Vila Verde'), --Braga
-		(14, 'Castro Daire'), --Viseu
-		(15, 'Murça'), --Vila Real
-		(16, 'Esposende'), --Braga
-		(17, 'Cascais'), --Lisboa
-		(18, 'Amadora'), --Lisboa
-		(19, 'Alcobaça'), --Leiria
-		(20, 'Tavira'), --Faro
-		(21, 'Felgueiras'), --Porto
-		(22, 'Faro') --Faro
+		(1, 'Maia'), -- Porto
+		(2, 'Póvoa de Varzim'), -- Porto
+		(3, 'Mafra'), -- Lisboa
+		(4, 'Portimão'), -- Faro
+		(5, 'Guimarães'), -- Braga
+		(6, 'Sintra'), -- Lisboa
+		(7, 'Lamego'), -- Viseu
+		(8, 'Boticas'), -- Vila Real
+		(9, 'Penafiel'), -- Porto
+		(10, 'Oeiras'), -- Lisboa
+		(11, 'Porto'), -- Porto
+		(12, 'Vila Nova de Famalicão'), -- Braga
+		(13, 'Vila Verde'), -- Braga
+		(14, 'Castro Daire'), -- Viseu
+		(15, 'Murça'), -- Vila Real
+		(16, 'Esposende'), -- Braga
+		(17, 'Cascais'), -- Lisboa
+		(18, 'Amadora'), -- Lisboa
+		(19, 'Alcobaça'), -- Leiria
+		(20, 'Tavira'), -- Faro
+		(21, 'Felgueiras'), -- Porto
+		(22, 'Faro') -- Faro
 	;
 
 
 
 INSERT INTO LocalHotel
-	(Id, Local, Pais)
+	(Id, LocalH, Pais)
 	VALUES
 		(1, 'Sydney', 'Austrália'),
 		(2, 'Rio de Janeiro', 'Brasil'),
@@ -99,7 +97,7 @@ INSERT INTO Rota
 	(Id, Companhia, Duracao, Aeroporto_Part, Aeroporto_Dest) -- Um aeroporto por destino, sem escalas
 	VALUES
 		('PORSYD', 'Emirates', 26,'Aeroporto Sá Carneiro','Aeroporto de Sydney'),
-		('PORGIG','TAP',12,'Aeroporto Sá Carneiro','Aeroporto Internacional do Rio de Janeiro',
+		('PORGIG','TAP',12,'Aeroporto Sá Carneiro','Aeroporto Internacional do Rio de Janeiro'),
 		('PORHRG','Turkish Airlines',12,'Aeroporto Sá Carneiro','Aeroporto Internacional de Hurghada'),
 		('PORHND','AirFrance',18,'Aeroporto Sá Carneiro','Aeroporto Internacional de Tóquio'),
 		('PORDXB','Emirates',9,'Aeroporto Sá Carneiro','Aeroporto Internacional de Dubai'),
@@ -119,7 +117,7 @@ INSERT INTO Rota
 		('PORFNC','TAP',2,'Aeroporto Sá Carneiro','Aeroporto Internacional da Madeira'),
 		('PORTXL','AirFrance',5,'Aeroporto Sá Carneiro','Aeroporto de Berlim-Tegel'),
 		('PORVIE','Iberia',5,'Aeroporto Sá Carneiro','Aeroporto Internacional de Viena'),
-		('LISSYD','Emirates',23,'Aeroporto da Portela','Aeroporto de Sydney'), --------------------------------
+		('LISSYD','Emirates',23,'Aeroporto da Portela','Aeroporto de Sydney'), -- ------------------------------
 		('LISGIG','TAP',10,'Aeroporto da Portela','Aeroporto Internacional do Rio de Janeiro'),
 		('LISHND','AirFrance',16,'Aeroporto da Portela','Aeroporto Internacional de Tóquio'),
 		('LISDXB','Emirates',7,'Aeroporto da Portela','Aeroporto Internacional de Dubai'),
@@ -171,7 +169,7 @@ INSERT INTO Hotel -- um hotel por destino, tal como os voos
 
 
 INSERT INTO Pensao
-	(IdPensao, Descricao, Hotel_Codigo)			--Pensoes: SA, PA, MP, PC (pensao completa, meia pensao, sem alimentação, pequeno almoço)
+	(IdPensao, Descricao, Hotel_Codigo)			-- Pensoes: SA, PA, MP, PC (pensao completa, meia pensao, sem alimentação, pequeno almoço)
 	VALUES
 		(1, 'PC', 1),
 		(2, 'MP', 1),
@@ -248,7 +246,7 @@ INSERT INTO Pensao
 
 
 INSERT INTO Cliente
-	(Id, Nome, Contacto, Email, NIF, Profissao, Rua, Cod_Postal, LocalCliente_Id)
+	(Id, Nome, Contacto, Email, NIF, Profissão, Rua, Cod_Postal, LocalCliente_Id)
 	VALUES
 		(1, 'Maria Inês Machado', 919191919, 'maria03@hotmail.com', 245005935, 'Cabeleireira', '1ª Travessa do Largo do Carvalho', '4475-503', 1),
 		(2, 'Vítor Campos', 921231234, 'vitoPT@gmail.com', 281195510, 'Agricultor', 'Rua 1º de Maio', '4490-451', 2),
@@ -376,7 +374,7 @@ Yoga 				YOGA
 
 
 
-INSERT INTO Venda --4 7 16 22 2
+INSERT INTO Venda 
 	(Numero, Data, Valor, Nr_Viagens, Cliente_Id)
 	VALUES
 		(1, '2015-01-07 10:15:39', 1300, 1, 1),
@@ -436,8 +434,8 @@ INSERT INTO Viagem
 		(3, 350, 150, 500, 4, 'F', '2015-07-12', 'Portugal', 'Egipto', 'PC', 3, 'PORHRG', 3),
 		(4, 400, 120, 520, 2, 'F', '2015-07-26', 'Portugal', 'Japão', 'MP', 4, 'LISHND', 4),
 		(5, 410, 300, 710, 2, 'F', '2015-07-12', 'Portugal', 'Emirados Árabes Unidos', 'PA', 5, 'PORDXB', 5),
-		(6, 410, 700, 1010, 6, 'F', '2015-08-02', 'Portugal', 'Emirados Árabes Unidos', 'PC', 5, 'PORDXB', 6), --2
-		(7, 410, 700, 1010, 6, 'F', '2015-08-02', 'Portugal', 'Emirados Árabes Unidos', 'PC', 5, 'PORDXB', 6), --2
+		(6, 410, 700, 1010, 6, 'F', '2015-08-02', 'Portugal', 'Emirados Árabes Unidos', 'PC', 5, 'PORDXB', 6), -- 2
+		(7, 410, 700, 1010, 6, 'F', '2015-08-02', 'Portugal', 'Emirados Árabes Unidos', 'PC', 5, 'PORDXB', 6), -- 2
 		(8, 150, 180, 330, 2, 'F', '2015-08-19', 'Portugal', 'Reino Unido', 'PA', 13, 'LISSTN', 7),
 		(9, 160, 140, 300, 2, 'O', '2015-10-01', 'Portugal', 'Alemanha', 'PA', 20, 'PORTXL', 8),
 		(10, 50, 300, 350, 2, 'O', '2015-12-01', 'Portugal', 'Espanha', 'MP', 10, 'PORBCN', 9), 
@@ -446,14 +444,14 @@ INSERT INTO Viagem
 		(13, 100, 95, 195, 2, 'P', '2016-04-20', 'Portugal', 'Áustria', 'MP', 21, 'PORVIE', 12), 
 		(14, 150, 90, 240, 1, 'O', '2016-05-07', 'Portugal', 'Reino Unido', 'MP', 13, 'PORSTN', 13), 
 		(15, 50, 150, 200, 1, 'O', '2016-05-17', 'Portugal', 'Espanha', 'MP', 10, 'LISBCN', 14),
-		(16, 350, 600, 950, 5, 'O', '2016-05-22', 'Portugal', 'Jamaica', 'PC', 6, 'LISMBJ', 15), --2 
-		(17, 350, 600, 950, 5, 'O', '2016-05-22', 'Portugal', 'Jamaica', 'PC', 6, 'LISMBJ', 15), --2
+		(16, 350, 600, 950, 5, 'O', '2016-05-22', 'Portugal', 'Jamaica', 'PC', 6, 'LISMBJ', 15), -- 2 
+		(17, 350, 600, 950, 5, 'O', '2016-05-22', 'Portugal', 'Jamaica', 'PC', 6, 'LISMBJ', 15), -- 2
 		(18, 160, 140, 300, 2, 'F', '2016-07-15', 'Portugal', 'Alemanha', 'PC', 20, 'LISTXL', 16),
 		(19, 90, 100, 190, 2, 'F', '2016-07-23', 'Portugal', 'Holanda', 'PC', 18, 'PORAMS', 17), 
-		(20, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), --4 
-		(21, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), --4
-		(22, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), --4
-		(23, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), --4
+		(20, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), -- 4 
+		(21, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), -- 4
+		(22, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), -- 4
+		(23, 200, 400, 600, 3, 'F', '2016-07-24', 'Portugal', 'Itália', 'PC', 17, 'PORFLR', 18), -- 4
 		(24, 150, 180, 330, 2, 'F', '2016-08-12', 'Portugal', 'Reino Unido', 'PA', 13, 'PORSTN', 19), 
 		(25, 200, 260, 460, 2, 'F', '2016-09-01', 'Portugal', 'Estados Unidos da América', 'PA', 7, 'LISJFK', 20), 
 		(26, 160, 70, 230, 1, 'F', '2016-09-02', 'Portugal', 'Alemanha', 'MP', 20, 'LISTXL', 21), 
@@ -461,16 +459,16 @@ INSERT INTO Viagem
 		(28, 90, 100, 190, 2, 'O', '2016-11-20', 'Portugal', 'Holanda', 'MP', 18, 'PORAMS', 23), 
 		(29, 90, 100, 190, 2, 'N', '2016-12-28', 'Portugal', 'Holanda', 'PC', 18, 'PORAMS', 24), 
 		(30, 60, 250, 310, 3, 'O', '2017-02-11', 'Portugal', 'Espanha', 'MP', 15, 'LISPMI', 25), 
-		(31, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), --3 
-		(32, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), --3
-		(33, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), --3
+		(31, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), -- 3 
+		(32, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), -- 3
+		(33, 100, 400, 500, 4, 'O', '2017-05-24', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 26), -- 3
 		(34, 200, 260, 460, 2, 'F', '2017-06-30', 'Portugal', 'Estados Unidos da América', 'PA', 7, 'LISJFK', 27),
 		(35, 210, 90, 300, 1, 'F', '2017-07-12', 'Portugal', 'Itália', 'PA', 12, 'LISFCO', 28), 
 		(36, 50, 300, 350, 2, 'F', '2017-08-06', 'Portugal', 'Espanha', 'MP', 10, 'PORBCN', 29), 
 		(37, 60, 150, 210, 2, 'F', '2017-08-08', 'Portugal', 'Espanha', 'PC', 15, 'LISPMI', 30), 
 		(38, 90, 50, 140, 1, 'F', '2017-08-30', 'Portugal', 'Holanda', 'MP', 18, 'PORAMS', 31), 
-		(39, 400, 140, 540, 3, 'N', '2017-12-24', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 32), --2 
-		(40, 400, 140, 540, 3, 'N', '2017-12-24', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 32), --2
+		(39, 400, 140, 540, 3, 'N', '2017-12-24', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 32), -- 2 
+		(40, 400, 140, 540, 3, 'N', '2017-12-24', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 32), -- 2
 		(41, 60, 250, 310, 3, 'A', '2017-12-29', 'Portugal', 'Espanha', 'PA', 15, 'LISPMI', 33), 
 		(42, 210, 90, 300, 1, 'O', '2018-02-25', 'Portugal', 'Itália', 'PA', 12, 'LISFCO', 34), 
 		(43, 150, 180, 330, 2, 'O', '2018-02-27', 'Portugal', 'Reino Unido', 'MP', 13, 'LISSTN', 35), 
@@ -478,17 +476,17 @@ INSERT INTO Viagem
 		(45, 210, 180, 390, 2, 'O', '2018-05-17', 'Portugal', 'Itália', 'MP', 12, 'LISFCO', 37), 
 		(46, 90, 100, 190, 2, 'F', '2018-07-12', 'Portugal', 'Holanda', 'PA', 18, 'PORAMS', 38), 
 		(47, 60, 250, 310, 3, 'F', '2018-07-15', 'Portugal', 'Espanha', 'SA', 15, 'LISPMI', 39), 
-		(48, 100, 200, 300, 2, 'F', '2018-07-31', 'Portugal', 'Espanha', 'PC', 15, 'PORPMI', 40), --2 
-		(49, 100, 200, 300, 2, 'F', '2018-07-31', 'Portugal', 'Espanha', 'PC', 15, 'PORPMI', 40), --2
-		(50, 160, 70, 230, 1, 'F', '2018-08-12', 'Portugal', 'Alemanha', 'PC', 20, 'LISTXL', 41), --2
-		(51, 160, 70, 230, 1, 'F', '2018-08-12', 'Portugal', 'Alemanha', 'PC', 20, 'LISTXL', 41), --2
+		(48, 100, 200, 300, 2, 'F', '2018-07-31', 'Portugal', 'Espanha', 'PC', 15, 'PORPMI', 40), -- 2 
+		(49, 100, 200, 300, 2, 'F', '2018-07-31', 'Portugal', 'Espanha', 'PC', 15, 'PORPMI', 40), -- 2
+		(50, 160, 70, 230, 1, 'F', '2018-08-12', 'Portugal', 'Alemanha', 'PC', 20, 'LISTXL', 41), -- 2
+		(51, 160, 70, 230, 1, 'F', '2018-08-12', 'Portugal', 'Alemanha', 'PC', 20, 'LISTXL', 41), -- 2
 		(52, 160, 140, 300, 2, 'F', '2018-08-13', 'Portugal', 'Alemanha', 'MP', 20, 'PORTXL', 42),
-		(53, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), --3 
-		(54, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), --3
-		(55, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), --3
+		(53, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), -- 3 
+		(54, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), -- 3
+		(55, 90, 380, 470, 4, 'F', '2018-08-22', 'Portugal', 'Portugal', 'PC', 19, 'LISFNC', 43), -- 3
 		(56, 200, 260, 460, 2, 'F', '2018-08-25', 'Portugal', 'Estados Unidos da América', 'PA', 7, 'LISJFK', 44),
-		(57, 400, 300, 700, 4, 'O', '2018-10-17', 'Portugal', 'Tailândia', 'PC', 22, 'PORHKT', 45), --2
-		(58, 400, 300, 700, 4, 'O', '2018-10-17', 'Portugal', 'Tailândia', 'PC', 22, 'PORHKT', 45)  --2
+		(57, 400, 300, 700, 4, 'O', '2018-10-17', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 45), -- 2
+		(58, 400, 300, 700, 4, 'O', '2018-10-17', 'Portugal', 'Tailândia', 'PC', 22, 'LISHKT', 45)  -- 2
 	;
 
 
