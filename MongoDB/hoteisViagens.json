@@ -1,6 +1,5 @@
 [
 {
-    // sydney
     "Codigo" : 1,
     "Nome" : "Estrelicius",
     "Contacto" : 111999999999,
@@ -44,7 +43,6 @@
     ]
 },
 {
-    // rio de janeiro
     "Codigo" : 2,
     "Nome" : "Rios",
     "Contacto" : 222999999999,
@@ -80,7 +78,6 @@
     ]
 },
 {
-    // hurghada
     "Codigo" : 3,
     "Nome" : "Egiptius",
     "Contacto" : 333999999999,
@@ -116,7 +113,6 @@
     ]
 },
 {
-    // toquio (2 viagens esta)
     "Codigo" : 4,
     "Nome" : "Toquious",
     "Contacto" : 444999999999,
@@ -168,7 +164,6 @@
     ]
 },
 {
-    // dubai
     "Codigo" : 5,
     "Nome" : "Dubaious",
     "Contacto" : 555999999999,
@@ -208,7 +203,6 @@
     ]
 },
 {
-    // praga (3 viagens aqui)
     "Codigo" : 6,
     "Nome" : "Praguious",
     "Contacto" : 666999999999,
