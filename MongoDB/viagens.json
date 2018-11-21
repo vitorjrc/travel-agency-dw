@@ -1,0 +1,110 @@
+[
+{
+    "Id" : 1,
+    "Preco_Voo" : 1000,
+    "Preco_Hotel" : 1000,
+    "Preco_Total" : 2000,
+    "Nr_Dias" : 5,
+    "Epoca" : "O",
+    "Data" : {"$date":"2018-02-20T10:00:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Australia",
+    "Pensao" : "PC"
+},
+{
+    "Id" : 2,
+    "Preco_Voo" : 700,
+    "Preco_Hotel" : 1100,
+    "Preco_Total" : 1800,
+    "Nr_Dias" : 7,
+    "Epoca" : "O",
+    "Data" : {"$date":"2017-02-22T12:05:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Brasil",
+    "Pensao" : "PC"
+},
+{
+    "Id" : 3,
+    "Preco_Voo" : 750,
+    "Preco_Hotel" : 800,
+    "Preco_Total" : 1550,
+    "Nr_Dias" : 9,
+    "Epoca" : "F",
+    "Data" : {"$date":"2017-08-01T08:50:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Egito",
+    "Pensao" : "PA"
+},
+{
+    "Id" : 4,
+    "Preco_Voo" : 900,
+    "Preco_Hotel" : 2000,
+    "Preco_Total" : 2900,
+    "Nr_Dias" : 6,
+    "Epoca" : "F",
+    "Data" : {"$date":"2017-08-15T20:00:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Japao",
+    "Pensao" : "MP"
+},
+{
+    "Id" : 5,
+    "Preco_Voo" : 1100,
+    "Preco_Hotel" : 1500,
+    "Preco_Total" : 2600,
+    "Nr_Dias" : 6,
+    "Epoca" : "O",
+    "Data" : {"$date":"2016-11-15T15:45:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Japao",
+    "Pensao" : "MP"
+},
+{
+    "Id" : 6,
+    "Preco_Voo" : 600,
+    "Preco_Hotel" : 2500,
+    "Preco_Total" : 3100,
+    "Nr_Dias" : 5,
+    "Epoca" : "F",
+    "Data" : {"$date":"2018-07-01T11:40:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Emirados Arabes Unidos",
+    "Pensao" : "PA"
+},
+{
+    "Id" : 7,
+    "Preco_Voo" : 150,
+    "Preco_Hotel" : 600,
+    "Preco_Total" : 750,
+    "Nr_Dias" : 6,
+    "Epoca" : "F",
+    "Data" : {"$date":"2017-08-01T06:45:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Republica Checa",
+    "Pensao" : "MP"
+},
+{
+    "Id" : 8,
+    "Preco_Voo" : 200,
+    "Preco_Hotel" : 800,
+    "Preco_Total" : 1000,
+    "Nr_Dias" : 6,
+    "Epoca" : "N",
+    "Data" : {"$date":"2015-12-20T06:45:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Republica Checa",
+    "Pensao" : "PC"
+},
+{
+    "Id" : 9,
+    "Preco_Voo" : 150,
+    "Preco_Hotel" : 500,
+    "Preco_Total" : 650,
+    "Nr_Dias" : 5,
+    "Epoca" : "O",
+    "Data" : {"$date":"2017-02-20T06:45:00Z"},
+    "Pais_Part" : "Portugal",
+    "Pais_Dest" : "Republica Checa",
+    "Pensao" : "MP"
+}
+]

@@ -1,0 +1,4 @@
+at 
+C:\Program Files\MongoDB\Server\4.0\bin
+use
+mongoimport --db travelagency --collection viagens --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\viagens.json --jsonArray

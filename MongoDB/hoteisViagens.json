@@ -1,64 +1,58 @@
 [
 {
-    // exemplo
     "Codigo" : 1,
     "Nome" : "Estrelicius",
     "Contacto" : 111999999999,
     "Email" : "estrelicius@hotels.com",
-    "Estrelas" : 5,
+    "Estrelas" : 4,
     "Rua" : "Rua do Estrelicius",
     "Local" : "Local do Estrelicius",
-    "CodPostal" : "",
-    "Pais" : "",
+    "CodPostal" : "1111",
+    "Pais" : "Australia",
     "Pensoes" : [ 
         {
         "Codigo" : 1,
         "Nome" : "SA"
         },
         {
-        "Codigo" : 1,
+        "Codigo" : 2,
         "Nome" : "PA"
-        }
-    ],
-    "Viagens" : [ 
-        {
-        "Codigo" : 1,
-        "Preco" : 1000,
-        "Nr_Dias" : 5,
-        "Epoca" : "F",
-        "Data" : "21-06-2017",
-        "Pais_Part" : "Portugal",
-        "Pais_Dest" : "",
-        "Pensao" : "PA"
         },
         {
-        "Codigo" : 2,
-        "Preco" : 2000,
-        "Nr_Dias" : 7,
-        "Epoca" : "N",
-        "Data" : "23-10-2016",
-        "Pais_Part" : "Portugal",
-        "Pais_Dest" : "",
-        "Pensao" : "SA"
+        "Codigo" : 3,
+        "Nome" : "MP"
+        },
+        {
+        "Codigo" : 4,
+        "Nome" : "PC"
+        }
+    ],
+    "Viagens" : [
+        {
+            "Id" : 1,
+            "Preco_Voo" : 1000,
+            "Preco_Hotel" : 1000,
+            "Preco_Total" : 2000,
+            "Nr_Dias" : 5,
+            "Epoca" : "O",
+            "Data" : {"$date":"2018-02-20T10:00:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Australia",
+            "Pensao" : "PC"
         }
     ]
 },
 {
-    // sydney
     "Codigo" : 2,
-    "Nome" : "Sidnius",
+    "Nome" : "Rios",
     "Contacto" : 222999999999,
-    "Email" : "sidnius@hotels.com",
+    "Email" : "rios@hotels.com",
     "Estrelas" : 5,
-    "Rua" : "Rua do Sidnius",
-    "Local" : "Local do Sidnius",
+    "Rua" : "Rua do Rios",
+    "Local" : "Local do Rios",
     "CodPostal" : "2222",
-    "Pais" : "Australia",
+    "Pais" : "Brasil",
     "Pensoes" : [ 
-        {
-            "Codigo" : 1,
-            "Nome" : "SA"
-        },
         {
             "Codigo" : 2,
             "Nome" : "PA"
@@ -68,25 +62,205 @@
             "Nome" : "MP"
         }
     ],
-    "Viagens" : [ 
+    "Viagens" : [
         {
-            "Codigo" : 3,
-            "Preco" : 1200,
-            "Nr_Dias" : 4,
-            "Epoca" : "F",
-            "Data" : "23-06-2017",
+            "Id" : 2,
+            "Preco_Voo" : 700,
+            "Preco_Hotel" : 1100,
+            "Preco_Total" : 1800,
+            "Nr_Dias" : 7,
+            "Epoca" : "O",
+            "Data" : {"$date":"2017-02-22T12:05:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "",
-            "Pensao" : "PA"
+            "Pais_Dest" : "Brasil",
+            "Pensao" : "PC"
+        }
+    ]
+},
+{
+    "Codigo" : 3,
+    "Nome" : "Egiptius",
+    "Contacto" : 333999999999,
+    "Email" : "egiptius@hotels.com",
+    "Estrelas" : 5,
+    "Rua" : "Rua do Egiptius",
+    "Local" : "Local do Egiptius",
+    "CodPostal" : "3333",
+    "Pais" : "Egito",
+    "Pensoes" : [ 
+        {
+            "Codigo" : 2,
+            "Nome" : "PA"
         },
         {
             "Codigo" : 4,
-            "Preco" : 2400,
+            "Nome" : "PC"
+        }
+    ],
+    "Viagens" : [
+        {
+            "Id" : 3,
+            "Preco_Voo" : 750,
+            "Preco_Hotel" : 800,
+            "Preco_Total" : 1550,
+            "Nr_Dias" : 9,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-01T08:50:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Egito",
+            "Pensao" : "PA"
+        }
+    ]
+},
+{
+    "Codigo" : 4,
+    "Nome" : "Toquious",
+    "Contacto" : 444999999999,
+    "Email" : "toquious@hotels.com",
+    "Estrelas" : 5,
+    "Rua" : "Rua do Toquious",
+    "Local" : "Local do Toquious",
+    "CodPostal" : "4444",
+    "Pais" : "Japao",
+    "Pensoes" : [ 
+        {
+            "Codigo" : 2,
+            "Nome" : "PA"
+        },
+        {
+            "Codigo" : 3,
+            "Nome" : "MP"
+        },
+        {
+            "Codigo" : 4,
+            "Nome" : "PC"
+        }
+    ],
+    "Viagens" : [
+        {
+            "Id" : 4,
+            "Preco_Voo" : 900,
+            "Preco_Hotel" : 2000,
+            "Preco_Total" : 2900,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-15T20:00:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Japao",
+            "Pensao" : "MP"
+        },
+        {
+            "Id" : 5,
+            "Preco_Voo" : 1100,
+            "Preco_Hotel" : 1500,
+            "Preco_Total" : 2600,
+            "Nr_Dias" : 6,
+            "Epoca" : "O",
+            "Data" : {"$date":"2016-11-15T15:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Japao",
+            "Pensao" : "MP"
+        }
+    ]
+},
+{
+    "Codigo" : 5,
+    "Nome" : "Dubaious",
+    "Contacto" : 555999999999,
+    "Email" : "dubaious@hotels.com",
+    "Estrelas" : 4,
+    "Rua" : "Rua do Dubaious",
+    "Local" : "Local do Dubaious",
+    "CodPostal" : "5555",
+    "Pais" : "Emirados Arabes Unidos",
+    "Pensoes" : [ 
+        {
+            "Codigo" : 2,
+            "Nome" : "PA"
+        },
+        {
+            "Codigo" : 3,
+            "Nome" : "MP"
+        },
+        {
+            "Codigo" : 4,
+            "Nome" : "PC"
+        }
+    ],
+    "Viagens" : [
+        {
+            "Id" : 6,
+            "Preco_Voo" : 600,
+            "Preco_Hotel" : 2500,
+            "Preco_Total" : 3100,
+            "Nr_Dias" : 5,
+            "Epoca" : "F",
+            "Data" : {"$date":"2018-07-01T11:40:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Emirados Arabes Unidos",
+            "Pensao" : "PA"
+        }
+    ]
+},
+{
+    "Codigo" : 6,
+    "Nome" : "Praguious",
+    "Contacto" : 666999999999,
+    "Email" : "praguious@hotels.com",
+    "Estrelas" : 3,
+    "Rua" : "Rua do Praguious",
+    "Local" : "Local do Praguious",
+    "CodPostal" : "6666",
+    "Pais" : "Republica Checa",
+    "Pensoes" : [ 
+        {
+            "Codigo" : 2,
+            "Nome" : "PA"
+        },
+        {
+            "Codigo" : 3,
+            "Nome" : "MP"
+        },
+        {
+            "Codigo" : 4,
+            "Nome" : "PC"
+        }
+    ],
+    "Viagens" : [
+        {
+            "Id" : 7,
+            "Preco_Voo" : 150,
+            "Preco_Hotel" : 600,
+            "Preco_Total" : 750,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-01T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "MP"
+        },
+        {
+            "Id" : 8,
+            "Preco_Voo" : 200,
+            "Preco_Hotel" : 800,
+            "Preco_Total" : 1000,
             "Nr_Dias" : 6,
             "Epoca" : "N",
-            "Data" : "17-12-2016",
+            "Data" : {"$date":"2015-12-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "PC"
+        },
+        {
+            "Id" : 9,
+            "Preco_Voo" : 150,
+            "Preco_Hotel" : 500,
+            "Preco_Total" : 650,
+            "Nr_Dias" : 5,
+            "Epoca" : "O",
+            "Data" : {"$date":"2017-02-20T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
             "Pensao" : "MP"
         }
     ]
