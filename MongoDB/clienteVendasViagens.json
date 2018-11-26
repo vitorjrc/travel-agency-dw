@@ -1,0 +1,353 @@
+[
+{
+    "Id" : 1,
+    "Nome" : "Joao Ratao",
+    "Contacto" : 910000001,
+    "Email" : "joao@hotmail.com",
+    "NIF" : 222000111,
+    "Profissao" : "Lenhador",
+    "Hobbies" : [ 
+        {
+        "Hobbie" : "Acampar",
+        "Sigla" : "acam"
+        },
+        {
+        "Hobbie" : "Caça",
+        "Sigla" : "caca"
+        }
+    ],
+    "Rua" : "Rua do Joao",
+    "Local" : "Local do Joao",
+    "CodPostal" : "4800-200",
+    "Vendas" : [
+        {
+        "Numero" : 1,
+        "Data" : {"$date":"2016-12-20T10:00:00Z"},
+        "Valor" : 3600,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+                "Id" : 2,
+                "Preco_Voo" : 700,
+                "Preco_Hotel" : 1100,
+                "Preco_Total" : 1800,
+                "Nr_Dias" : 7,
+                "Epoca" : "O",
+                "Data" : {"$date":"2017-02-22T12:05:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Brasil",
+                "Pensao" : "PC"
+            }
+        ]
+        },
+        {
+        "Numero" : 2,
+        "Data" : {"$date":"2017-03-25T10:00:00Z"},
+        "Valor" : 1550,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+                "Id" : 3,
+                "Preco_Voo" : 750,
+                "Preco_Hotel" : 800,
+                "Preco_Total" : 1550,
+                "Nr_Dias" : 9,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-01T08:50:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Egito",
+                "Pensao" : "PA"
+            }
+        ]
+        }
+    ]
+},
+{
+    "Id" : 2,
+    "Nome" : "Vitor Jose",
+    "Contacto" : 910000002,
+    "Email" : "vitor@gmail.com",
+    "NIF" : 222000222,
+    "Profissao" : "Engenheiro",
+    "Hobbies" : [ 
+        {
+        "Hobbie" : "Escrever",
+        "Sigla" : "escr"
+        },
+        {
+        "Hobbie" : "Fotografia",
+        "Sigla" : "foto"
+        }
+    ],
+    "Rua" : "Rua do Vitor",
+    "Local" : "Local do Vitor",
+    "CodPostal" : "4200-200",
+    "Vendas" : [
+        {
+        "Numero" : 3,
+        "Data" : {"$date":"2017-10-20T10:00:00Z"},
+        "Valor" : 6000,
+        "NrViagens": 3,
+        "Viagem" : [
+            {
+            "Id" : 1,
+            "Preco_Voo" : 1000,
+            "Preco_Hotel" : 1000,
+            "Preco_Total" : 2000,
+            "Nr_Dias" : 5,
+            "Epoca" : "O",
+            "Data" : {"$date":"2018-02-20T10:00:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Australia",
+            "Pensao" : "PC"
+            }
+        ]
+        },
+        {
+        "Numero" : 4,
+        "Data" : {"$date":"2017-08-10T10:00:00Z"},
+        "Valor" : 2900,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+            "Id" : 4,
+            "Preco_Voo" : 900,
+            "Preco_Hotel" : 2000,
+            "Preco_Total" : 2900,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-15T20:00:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Japao",
+            "Pensao" : "MP"
+            }
+        ]
+        },
+        {
+        "Numero" : 5,
+        "Data" : {"$date":"2016-12-10T10:00:00Z"},
+        "Valor" : 1800,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+            "Id" : 2,
+            "Preco_Voo" : 700,
+            "Preco_Hotel" : 1100,
+            "Preco_Total" : 1800,
+            "Nr_Dias" : 7,
+            "Epoca" : "O",
+            "Data" : {"$date":"2017-02-22T12:05:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Brasil",
+            "Pensao" : "PC"
+            }
+        ]
+        }
+    ]
+},
+{
+    "Id" : 3,
+    "Nome" : "Joao Paulo",
+    "Contacto" : 910000003,
+    "Email" : "joao@gmail.com",
+    "NIF" : 222000333,
+    "Profissao" : "Gestor",
+    "Hobbies" : [ 
+        {
+        "Hobbie" : "Cantar",
+        "Sigla" : "cant"
+        },
+        {
+        "Hobbie" : "Fotografia",
+        "Sigla" : "foto"
+        },
+        {
+        "Hobbie" : "Ler",
+        "Sigla" : "ler"
+        }
+    ],
+    "Rua" : "Rua do Joao",
+    "Local" : "Local do Joao",
+    "CodPostal" : "3200-120",
+    "Vendas" : [
+        {
+        "Numero" : 6,
+        "Data" : {"$date":"2017-06-20T10:00:00Z"},
+        "Valor" : 2900,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+            "Id" : 4,
+            "Preco_Voo" : 900,
+            "Preco_Hotel" : 2000,
+            "Preco_Total" : 2900,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-15T20:00:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Japao",
+            "Pensao" : "MP"
+            }
+            ]
+        },
+        {
+        "Numero" : 7,
+        "Data" : {"$date":"2016-06-20T10:00:00Z"},
+        "Valor" : 2600,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+            "Id" : 5,
+            "Preco_Voo" : 1100,
+            "Preco_Hotel" : 1500,
+            "Preco_Total" : 2600,
+            "Nr_Dias" : 6,
+            "Epoca" : "O",
+            "Data" : {"$date":"2016-11-15T15:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Japao",
+            "Pensao" : "MP"
+            }
+            ]
+        },
+        {
+        "Numero" : 8,
+        "Data" : {"$date":"2017-06-20T10:00:00Z"},
+        "Valor" : 6200,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+            "Id" : 6,
+            "Preco_Voo" : 600,
+            "Preco_Hotel" : 2500,
+            "Preco_Total" : 3100,
+            "Nr_Dias" : 5,
+            "Epoca" : "F",
+            "Data" : {"$date":"2018-07-01T11:40:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Emirados Arabes Unidos",
+            "Pensao" : "PA"
+            }
+            ]
+        }
+    ]
+},
+{
+    "Id" : 4,
+    "Nome" : "Julio Alberto",
+    "Contacto" : 910000004,
+    "Email" : "julio@gmail.com",
+    "NIF" : 222000444,
+    "Profissao" : "Primeiro-Ministro",
+    "Hobbies" : [
+        {
+        "Hobbie" : "Ler",
+        "Sigla" : "ler"
+        }
+    ],
+    "Rua" : "Rua do Primeiro",
+    "Local" : "Local do Primeiro",
+    "CodPostal" : "2800-180",
+    "Vendas" : [
+        {
+        "Numero" : 7,
+        "Data" : {"$date":"2017-06-20T10:00:00Z"},
+        "Valor" : 2250,
+        "NrViagens": 3,
+        "Viagem" : [
+            {
+            "Id" : 7,
+            "Preco_Voo" : 150,
+            "Preco_Hotel" : 600,
+            "Preco_Total" : 750,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-01T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "MP"
+            }
+            ]
+        },
+        {
+        "Numero" : 8,
+        "Data" : {"$date":"2015-06-20T10:00:00Z"},
+        "Valor" : 2000,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+            "Id" : 8,
+            "Preco_Voo" : 200,
+            "Preco_Hotel" : 800,
+            "Preco_Total" : 1000,
+            "Nr_Dias" : 6,
+            "Epoca" : "N",
+            "Data" : {"$date":"2015-12-20T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "PC"
+            }
+            ]
+        }
+    ]
+},
+{
+    "Id" : 5,
+    "Nome" : "Marta Minas",
+    "Contacto" : 910000005,
+    "Email" : "marta@gmail.com",
+    "NIF" : 222000555,
+    "Profissao" : "Costureira",
+    "Hobbies" : [
+        {
+        "Hobbie" : "Voluntariado",
+        "Sigla" : "volu"
+        }
+    ],
+    "Rua" : "Rua da Marta",
+    "Local" : "Local da Marta",
+    "CodPostal" : "2800-180",
+    "Vendas" : [
+        {
+        "Numero" : 8,
+        "Data" : {"$date":"2017-04-10T10:00:00Z"},
+        "Valor" : 1500,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+            "Id" : 7,
+            "Preco_Voo" : 150,
+            "Preco_Hotel" : 600,
+            "Preco_Total" : 750,
+            "Nr_Dias" : 6,
+            "Epoca" : "F",
+            "Data" : {"$date":"2017-08-01T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "MP"
+            }
+            ]
+        },
+        {
+        "Numero" : 9,
+        "Data" : {"$date":"2015-03-15T17:00:00Z"},
+        "Valor" : 1300,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+            "Id" : 9,
+            "Preco_Voo" : 150,
+            "Preco_Hotel" : 500,
+            "Preco_Total" : 650,
+            "Nr_Dias" : 5,
+            "Epoca" : "O",
+            "Data" : {"$date":"2017-02-20T06:45:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Republica Checa",
+            "Pensao" : "MP"
+            }
+            ]
+        }
+    ]
+}
+]
