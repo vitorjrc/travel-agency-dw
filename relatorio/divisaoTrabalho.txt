@@ -1,0 +1,7 @@
+Vítor : 4 + 1 + 2.3
+Sérgio :  5
+Diana :  6
+Luis : 2.1, 2.2, 2.4
+Tarraxo : 3
+
+Até 20/12 aproximadamente

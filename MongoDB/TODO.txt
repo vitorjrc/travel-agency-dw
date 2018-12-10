@@ -1,0 +1,9 @@
+IMPORTANTE
+
+Tenho que replicar viagens.
+Inicialmente, pensei que as viagens era na verdade pacotes, e coloquei várias pessoas
+a comprar a mesma viagem. Afinal, a cena dos pacotes até pode ser oferecida em loja
+mas no sistema é como se fosse algo individual.
+Exemplo:
+Um cliente compra 2 viagens para as Caraíbas, do mesmo pacote.
+No sistema entra que ele comprou a idViagem 1 e idViagem 2.
