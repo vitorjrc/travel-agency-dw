@@ -142,6 +142,38 @@
             "Pensao" : "PC"
             }
         ]
+        },
+        {
+        "Numero" : 10,
+        "Data" : {"$date":"2017-03-15T10:00:00Z"},
+        "Valor" : 3800,
+        "NrViagens": 2,
+        "Viagem" : [
+            {
+                "Id" : 9,
+                "Preco_Voo" : 900,
+                "Preco_Hotel" : 1000,
+                "Preco_Total" : 1900,
+                "Nr_Dias" : 5,
+                "Epoca" : "O",
+                "Data" : {"$date":"2018-04-20T10:00:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Australia",
+                "Pensao" : "PC"
+            },
+            {
+                "Id" : 10,
+                "Preco_Voo" : 900,
+                "Preco_Hotel" : 1000,
+                "Preco_Total" : 1900,
+                "Nr_Dias" : 5,
+                "Epoca" : "O",
+                "Data" : {"$date":"2018-04-20T10:00:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Australia",
+                "Pensao" : "PC"
+            }
+        ]
         }
     ]
 },
@@ -229,6 +261,50 @@
             "Pensao" : "PA"
             }
             ]
+        },
+        {
+        "Numero" : 11,
+        "Data" : {"$date":"2017-04-25T11:00:00Z"},
+        "Valor" : 3150,
+        "NrViagens": 3,
+        "Viagem" : [
+            {
+                "Id" : 12,
+                "Preco_Voo" : 550,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 1050,
+                "Nr_Dias" : 6,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-30T012:50:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Egito",
+                "Pensao" : "SA"
+            },
+            {
+                "Id" : 13,
+                "Preco_Voo" : 550,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 1050,
+                "Nr_Dias" : 6,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-30T012:50:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Egito",
+                "Pensao" : "SA"
+            },
+            {
+                "Id" : 14,
+                "Preco_Voo" : 550,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 1050,
+                "Nr_Dias" : 6,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-30T012:50:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Egito",
+                "Pensao" : "SA"
+            }
+        ]
         }
     ]
 },
@@ -285,6 +361,26 @@
             "Data" : {"$date":"2015-12-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
             "Pais_Dest" : "Republica Checa",
+            "Pensao" : "PC"
+            }
+            ]
+        },
+        {
+        "Numero" : 12,
+        "Data" : {"$date":"2016-12-20T10:00:00Z"},
+        "Valor" : 1900,
+        "NrViagens": 1,
+        "Viagem" : [
+            {
+            "Id" : 11,
+            "Preco_Voo" : 750,
+            "Preco_Hotel" : 1150,
+            "Preco_Total" : 1900,
+            "Nr_Dias" : 7,
+            "Epoca" : "O",
+            "Data" : {"$date":"2017-02-01T10:05:00Z"},
+            "Pais_Part" : "Portugal",
+            "Pais_Dest" : "Brasil",
             "Pensao" : "PC"
             }
             ]
@@ -345,6 +441,74 @@
             "Pais_Part" : "Portugal",
             "Pais_Dest" : "Republica Checa",
             "Pensao" : "MP"
+            }
+            ]
+        },
+        {
+        "Numero" : 13,
+        "Data" : {"$date":"2016-02-04T18:30:00Z"},
+        "Valor" : 7350,
+        "NrViagens": 5,
+        "Viagem" : [
+            {
+                "Id" : 15,
+                "Preco_Voo" : 800,
+                "Preco_Hotel" : 1900,
+                "Preco_Total" : 2700,
+                "Nr_Dias" : 5,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-01T20:00:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Japao",
+                "Pensao" : "PC"
+            },
+            {
+                "Id" : 16,
+                "Preco_Voo" : 800,
+                "Preco_Hotel" : 1900,
+                "Preco_Total" : 2700,
+                "Nr_Dias" : 5,
+                "Epoca" : "F",
+                "Data" : {"$date":"2017-08-01T20:00:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Japao",
+                "Pensao" : "PC"
+            },
+            {
+                "Id" : 17,
+                "Preco_Voo" : 150,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 650,
+                "Nr_Dias" : 5,
+                "Epoca" : "O",
+                "Data" : {"$date":"2017-02-20T06:45:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Republica Checa",
+                "Pensao" : "MP"
+            },
+            {
+                "Id" : 18,
+                "Preco_Voo" : 150,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 650,
+                "Nr_Dias" : 5,
+                "Epoca" : "O",
+                "Data" : {"$date":"2017-02-20T06:45:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Republica Checa",
+                "Pensao" : "MP"
+            },
+            {
+                "Id" : 19,
+                "Preco_Voo" : 150,
+                "Preco_Hotel" : 500,
+                "Preco_Total" : 650,
+                "Nr_Dias" : 5,
+                "Epoca" : "O",
+                "Data" : {"$date":"2017-02-20T06:45:00Z"},
+                "Pais_Part" : "Portugal",
+                "Pais_Dest" : "Republica Checa",
+                "Pensao" : "MP"
             }
             ]
         }
