@@ -78,7 +78,7 @@
     "Preco_Total" : 1050,
     "Nr_Dias" : 6,
     "Epoca" : "F",
-    "Data" : {"$date":"2017-08-30T012:50:00Z"},
+    "Data" : {"$date":"2017-08-30T12:50:00Z"},
     "Pais_Part" : "Portugal",
     "Pais_Dest" : "Egito",
     "Pensao" : "SA"
@@ -90,7 +90,7 @@
     "Preco_Total" : 1050,
     "Nr_Dias" : 6,
     "Epoca" : "F",
-    "Data" : {"$date":"2017-08-30T012:50:00Z"},
+    "Data" : {"$date":"2017-08-30T12:50:00Z"},
     "Pais_Part" : "Portugal",
     "Pais_Dest" : "Egito",
     "Pensao" : "SA"
@@ -102,7 +102,7 @@
     "Preco_Total" : 1050,
     "Nr_Dias" : 6,
     "Epoca" : "F",
-    "Data" : {"$date":"2017-08-30T012:50:00Z"},
+    "Data" : {"$date":"2017-08-30T12:50:00Z"},
     "Pais_Part" : "Portugal",
     "Pais_Dest" : "Egito",
     "Pensao" : "SA"

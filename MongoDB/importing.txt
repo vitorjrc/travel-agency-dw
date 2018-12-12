@@ -2,3 +2,12 @@ at
 C:\Program Files\MongoDB\Server\4.0\bin
 use
 mongoimport --db travelagency --collection viagens --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\viagens.json --jsonArray
+
+viagens
+mongoimport --db travelagency --collection viagens --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\viagens.json --jsonArray
+rotas
+mongoimport --db travelagency --collection rotas --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\rotaViagens.json --jsonArray
+hoteis
+mongoimport --db travelagency --collection hoteis --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\hoteisViagens.json --jsonArray
+clientes
+mongoimport --db travelagency --collection clientes --drop --file C:\Users\VJRC1\Desktop\travel-agency-dw\MongoDB\clienteVendasViagens.json --jsonArray
