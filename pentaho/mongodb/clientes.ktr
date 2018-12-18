@@ -430,18 +430,88 @@
     <created_date>2018/12/18 13:49:37.937</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/12/18 13:49:37.937</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>Area Retencao</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>areaRetencaoDW</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
+    <hop>
+      <from>MongoDB Input Clientes</from>
+      <to>Remove unused for Clientes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>MongoDB Input Clientes</from>
+      <to>Remove unused for Viagens</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>MongoDB Input Clientes</from>
+      <to>Remove unused for Vendas</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>MongoDB Input Clientes</name>
     <type>MongoDbInput</type>
     <description />
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -612,7 +682,306 @@
     </remotesteps>
     <GUI>
       <xloc>96</xloc>
-      <yloc>128</yloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove unused for Clientes</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>_id</name>
+      </remove>
+      <remove>
+        <name>Rua</name>
+      </remove>
+      <remove>
+        <name>CodPostal</name>
+      </remove>
+      <remove>
+        <name>Contacto</name>
+      </remove>
+      <remove>
+        <name>Email</name>
+      </remove>
+      <remove>
+        <name>Sigla</name>
+      </remove>
+      <remove>
+        <name>Hobbie</name>
+      </remove>
+      <remove>
+        <name>NumeroVenda</name>
+      </remove>
+      <remove>
+        <name>Valor</name>
+      </remove>
+      <remove>
+        <name>NrViagens</name>
+      </remove>
+      <remove>
+        <name>DataVenda</name>
+      </remove>
+      <remove>
+        <name>IdViagem</name>
+      </remove>
+      <remove>
+        <name>Preco_Voo</name>
+      </remove>
+      <remove>
+        <name>Preco_Hotel</name>
+      </remove>
+      <remove>
+        <name>Preco_Total</name>
+      </remove>
+      <remove>
+        <name>Nr_Dias</name>
+      </remove>
+      <remove>
+        <name>Epoca</name>
+      </remove>
+      <remove>
+        <name>Pais_Part</name>
+      </remove>
+      <remove>
+        <name>Pais_Dest</name>
+      </remove>
+      <remove>
+        <name>Pensao</name>
+      </remove>
+      <remove>
+        <name>DataViagem</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove unused for Vendas</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>_id</name>
+      </remove>
+      <remove>
+        <name>IdCliente</name>
+      </remove>
+      <remove>
+        <name>NumeroVenda</name>
+      </remove>
+      <remove>
+        <name>Valor</name>
+      </remove>
+      <remove>
+        <name>NrViagens</name>
+      </remove>
+      <remove>
+        <name>DataVenda</name>
+      </remove>
+      <remove>
+        <name>IdViagem</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove unused for Viagens</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>_id</name>
+      </remove>
+      <remove>
+        <name>IdCliente</name>
+      </remove>
+      <remove>
+        <name>Nome</name>
+      </remove>
+      <remove>
+        <name>NIF</name>
+      </remove>
+      <remove>
+        <name>Profissao</name>
+      </remove>
+      <remove>
+        <name>Local</name>
+      </remove>
+      <remove>
+        <name>Rua</name>
+      </remove>
+      <remove>
+        <name>CodPostal</name>
+      </remove>
+      <remove>
+        <name>Contacto</name>
+      </remove>
+      <remove>
+        <name>Email</name>
+      </remove>
+      <remove>
+        <name>Sigla</name>
+      </remove>
+      <remove>
+        <name>Hobbie</name>
+      </remove>
+      <remove>
+        <name>NumeroVenda</name>
+      </remove>
+      <remove>
+        <name>Valor</name>
+      </remove>
+      <remove>
+        <name>NrViagens</name>
+      </remove>
+      <remove>
+        <name>DataVenda</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection />
+    <schema />
+    <table />
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output areaRetencaoDW.ClientesExtract</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Area Retencao</connection>
+    <schema />
+    <table>clientesextract</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
