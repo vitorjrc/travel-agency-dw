@@ -185,9 +185,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `arDW`.`AR_DIM-Cliente`
+-- Table `arDW`.`AR_DIM_Cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM-Cliente` (
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Cliente` (
   `idCliente` INT NULL,
   `nome` VARCHAR(45) NULL,
   `nif` INT NULL,
@@ -197,9 +197,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `arDW`.`AR_DIM-Vendas`
+-- Table `arDW`.`AR_DIM_Vendas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM-Vendas` (
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Vendas` (
   `idVenda` INT NULL,
   `valor` INT NULL,
   `nrViagens` INT NULL,
@@ -210,9 +210,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `arDW`.`AR_DIM-Viagens`
+-- Table `arDW`.`AR_DIM_Viagens`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM-Viagens` (
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Viagens` (
   `idViagens` INT NULL,
   `precoVoo` INT NULL,
   `precoHotel` INT NULL,
@@ -227,9 +227,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `arDW`.`AR_DIM-Calendario`
+-- Table `arDW`.`AR_DIM_Calendario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM-Calendario` (
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Calendario` (
   `idData` INT NULL,
   `diaSemana` VARCHAR(45) NULL,
   `diaData` VARCHAR(45) NULL,
