@@ -1,6 +1,5 @@
-just open cmd.exe w/ administrator and
-$ net start MongoDB
+in the bin directory of MongoDB
+cmd.exe -> mongod.exe
 
 to stop the servive
-$ net stop MongoDB
-
+just kill the terminal
