@@ -440,7 +440,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>areaRetencaoDW</database>
+    <database>arDW</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
@@ -504,6 +504,21 @@
     <hop>
       <from>MongoDB Input Clientes</from>
       <to>Remove unused for Vendas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unused for Viagens</from>
+      <to>Table output arDW Viagens</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unused for Clientes</from>
+      <to>Table output arDW Clientes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unused for Vendas</from>
+      <to>Table output 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -700,9 +715,6 @@
     <fields>
       <select_unspecified>N</select_unspecified>
       <remove>
-        <name>_id</name>
-      </remove>
-      <remove>
         <name>Rua</name>
       </remove>
       <remove>
@@ -762,6 +774,9 @@
       <remove>
         <name>DataViagem</name>
       </remove>
+      <remove>
+        <name>_Id</name>
+      </remove>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -793,22 +808,64 @@
         <name>_id</name>
       </remove>
       <remove>
-        <name>IdCliente</name>
+        <name>Nome</name>
       </remove>
       <remove>
-        <name>NumeroVenda</name>
+        <name>NIF</name>
       </remove>
       <remove>
-        <name>Valor</name>
+        <name>Profissao</name>
       </remove>
       <remove>
-        <name>NrViagens</name>
+        <name>Local</name>
+      </remove>
+      <remove>
+        <name>Rua</name>
+      </remove>
+      <remove>
+        <name>CodPostal</name>
+      </remove>
+      <remove>
+        <name>Contacto</name>
+      </remove>
+      <remove>
+        <name>Email</name>
+      </remove>
+      <remove>
+        <name>Sigla</name>
+      </remove>
+      <remove>
+        <name>Hobbie</name>
       </remove>
       <remove>
         <name>DataVenda</name>
       </remove>
       <remove>
-        <name>IdViagem</name>
+        <name>Preco_Voo</name>
+      </remove>
+      <remove>
+        <name>Preco_Hotel</name>
+      </remove>
+      <remove>
+        <name>Preco_Total</name>
+      </remove>
+      <remove>
+        <name>Nr_Dias</name>
+      </remove>
+      <remove>
+        <name>Epoca</name>
+      </remove>
+      <remove>
+        <name>Pais_Part</name>
+      </remove>
+      <remove>
+        <name>Pais_Dest</name>
+      </remove>
+      <remove>
+        <name>Pensao</name>
+      </remove>
+      <remove>
+        <name>DataViagem</name>
       </remove>
     </fields>
     <cluster_schema />
@@ -900,50 +957,7 @@
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection />
-    <schema />
-    <table />
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output areaRetencaoDW.ClientesExtract</name>
+    <name>Table output arDW Viagens</name>
     <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -955,7 +969,7 @@
     </partitioning>
     <connection>Area Retencao</connection>
     <schema />
-    <table>clientesextract</table>
+    <table>ar_cleanup_viagens_m</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -971,6 +985,109 @@
     <return_keys>N</return_keys>
     <return_field />
     <fields>
+      <field>
+        <column_name>idViagens</column_name>
+        <stream_name>IdViagem</stream_name>
+      </field>
+      <field>
+        <column_name>epoca</column_name>
+        <stream_name>Epoca</stream_name>
+      </field>
+      <field>
+        <column_name>pensao</column_name>
+        <stream_name>Pensao</stream_name>
+      </field>
+      <field>
+        <column_name>DIM_Calendario_dataViagem</column_name>
+        <stream_name>DataViagem</stream_name>
+      </field>
+      <field>
+        <column_name>precoVoo</column_name>
+        <stream_name>Preco_Voo</stream_name>
+      </field>
+      <field>
+        <column_name>precoHotal</column_name>
+        <stream_name>Preco_Hotel</stream_name>
+      </field>
+      <field>
+        <column_name>precoTotal</column_name>
+        <stream_name>Preco_Total</stream_name>
+      </field>
+      <field>
+        <column_name>nrDias</column_name>
+        <stream_name>Nr_Dias</stream_name>
+      </field>
+      <field>
+        <column_name>paisPart</column_name>
+        <stream_name>Pais_Part</stream_name>
+      </field>
+      <field>
+        <column_name>paisDest</column_name>
+        <stream_name>Pais_Dest</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output arDW Clientes</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Area Retencao</connection>
+    <schema />
+    <table>ar_cleanup_cliente_m</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>idCliente</column_name>
+        <stream_name>IdCliente</stream_name>
+      </field>
+      <field>
+        <column_name>nome</column_name>
+        <stream_name>Nome</stream_name>
+      </field>
+      <field>
+        <column_name>nif</column_name>
+        <stream_name>NIF</stream_name>
+      </field>
+      <field>
+        <column_name>profissao</column_name>
+        <stream_name>Profissao</stream_name>
+      </field>
+      <field>
+        <column_name>local</column_name>
+        <stream_name>Local</stream_name>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -982,6 +1099,69 @@
     <GUI>
       <xloc>704</xloc>
       <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output 2</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Area Retencao</connection>
+    <schema />
+    <table>ar_cleanup_vendas_m</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>DIM-Clientes_idCliente</column_name>
+        <stream_name>IdCliente</stream_name>
+      </field>
+      <field>
+        <column_name>valor</column_name>
+        <stream_name>Valor</stream_name>
+      </field>
+      <field>
+        <column_name>nrViagens</column_name>
+        <stream_name>NrViagens</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Viagens_idViagens</column_name>
+        <stream_name>IdViagem</stream_name>
+      </field>
+      <field>
+        <column_name>idVenda</column_name>
+        <stream_name>NumeroVenda</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
