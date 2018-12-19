@@ -605,7 +605,7 @@
       <schema_name />
     </partitioning>
     <connection>TravelAgency</connection>
-    <sql>select venda.Numero, venda.Valor, venda.Nr_Viagens, venda.Cliente_Id, viagem.Id, venda.Data from venda 
+    <sql>select venda.Numero, venda.Valor, venda.Nr_Viagens, venda.Cliente_Id, viagem.Id, (SELECT YEAR(venda.Data) * 10000 + MONTH(venda.Data) * 100 + DAY(venda.data)) as Data from venda 
 	join viagem on viagem.Id = venda.Numero</sql>
     <limit>0</limit>
     <lookup />
