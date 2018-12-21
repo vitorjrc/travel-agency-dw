@@ -3,7 +3,6 @@ DELIMITER //
 DROP TRIGGER IF EXISTS timeYearAndDayWeek;
 CREATE TRIGGER timeYearAndDayWeek
 BEFORE INSERT ON ardw.ar_dim_calendario FOR EACH ROW
-
 BEGIN
 	
 	DECLARE dataIn, dia, mes BIGINT;
@@ -58,6 +57,7 @@ BEGIN
     
     END CASE;
     
-END//
+END;
+//
 
 DELIMITER ;
