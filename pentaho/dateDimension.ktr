@@ -443,7 +443,7 @@
     <database>arDW</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7a893aa14ab7edb85bc8d</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -769,6 +769,10 @@
       <field>
         <column_name>trimestre</column_name>
         <stream_name>trimestre</stream_name>
+      </field>
+      <field>
+        <column_name>data</column_name>
+        <stream_name>DimensionDate</stream_name>
       </field>
     </fields>
     <cluster_schema />
