@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Vendas_M` (
   `nrViagens` INT NULL,
   `DIM-Clientes_idCliente` INT NULL,
   `DIM-Viagens_idViagens` INT NULL,
-  `DIM-Calendario_idData` INT NULL)
+  `DIM-Calendario_idData` INT NULL,
+  `dataVenda` DATE NULL)
 ENGINE = InnoDB;
 
 
@@ -53,7 +54,8 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Viagens_M` (
   `paisDest` VARCHAR(45) NULL,
   `pensao` CHAR(2) NULL,
   `nomeHotel` VARCHAR(45) NULL,
-  `DIM_Calendario_dataViagem` INT NULL)
+  `DIM_Calendario_idData` INT NULL,
+  `dataViagem` DATE NULL)
 ENGINE = InnoDB;
 
 
