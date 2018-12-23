@@ -444,7 +444,7 @@
     <database>ardw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -609,6 +609,151 @@
     </hop>
   </order>
   <step>
+    <name>CalculatedFields</name>
+    <type>Formula</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <formula>
+      <field_name>DateSid</field_name>
+      <formula_string>Year([DimensionDate])*10000 + Month([DimensionDate]) *100 + day([DimensionDate])</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>Year</field_name>
+      <formula_string>year([DimensionDate])
+</formula_string>
+      <value_type>Number</value_type>
+      <value_length>4</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>Quarter</field_name>
+      <formula_string>int(month([DimensionDate])/3 + .9)
+</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>Month</field_name>
+      <formula_string>month([DimensionDate])
+</formula_string>
+      <value_type>Number</value_type>
+      <value_length>2</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>Day</field_name>
+      <formula_string>day([DimensionDate])
+</formula_string>
+      <value_type>Number</value_type>
+      <value_length>2</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>Weekday</field_name>
+      <formula_string>weekday([DimensionDate]; 2)</formula_string>
+      <value_type>Number</value_type>
+      <value_length>1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>MonthName</field_name>
+      <formula_string>TRIM(MID("         January  February March    April    May      June     July     August   SeptemberOctober  November December "; 
+month([DimensionDate])*9+1; 9))</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>MonthAbbreviation</field_name>
+      <formula_string>MID("   JanFebMarAprMayJunJulAugSepOctNovDec"; month([DimensionDate])*3+1; 3)</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>DayName</field_name>
+      <formula_string>TRIM(MID("         Sunday   Monday   Tuesday  WednesdayThursday Friday   Saturday "; weekday([DimensionDate];1)*9+1; 9))</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>DayAbbreviation</field_name>
+      <formula_string>MID("   SunMonTueWedThuFriSatSun"; weekday([DimensionDate];1)*3+1; 3)</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>YearInDimension</field_name>
+      <formula_string>Year([DimensionDate]) - Year([FirstDate]) + 1</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>QuartersInDimension</field_name>
+      <formula_string>if(year([DimensionDate])=year([FirstDate]);int((datedif([FirstDate];[DimensionDate];"m")+1)/3+.9);
+int((datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)/3+.9)+int((datedif([FirstDate];date(year([FirstDate]);12;31);"m")+1)/3+.9))</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>MonthInDimension</field_name>
+      <formula_string>if(year([FirstDate])=year([DimensionDate]);datedif([FirstDate];[DimensionDate];"m")+1;
+datedif([FirstDate];date(year([FirstDate]);12;31);"m")+1) +
+if(year([FirstDate])=year([DimensionDate]);0;
+datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <formula>
+      <field_name>DayInYear</field_name>
+      <formula_string>DateDif(date(year([DimensionDate]);1;1);[DimensionDate];"d")+1</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Cliente</name>
     <type>ExcelInput</type>
     <description />
@@ -636,6 +781,11 @@
     <accept_stepname />
     <file>
       <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\VJRC1\Desktop\travel-agency-dw\Excel\DW.xls</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
@@ -754,6 +904,83 @@
     </GUI>
   </step>
   <step>
+    <name>Day In Dimension</name>
+    <type>Sequence</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <valuename>DayInDimension</valuename>
+    <use_database>N</use_database>
+    <connection />
+    <schema />
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name>DayInDimension</counter_name>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generate from Start Date</name>
+    <type>RowGenerator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>FirstDate</name>
+        <type>Date</type>
+        <format>yyyy/MM/dd HH:mm:ss</format>
+        <currency />
+        <decimal />
+        <group />
+        <nullif>2015/01/01 00:00:00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>5475</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms />
+    <row_time_field />
+    <last_time_field />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Hotel</name>
     <type>ExcelInput</type>
     <description />
@@ -781,6 +1008,11 @@
     <accept_stepname />
     <file>
       <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\VJRC1\Desktop\travel-agency-dw\Excel\DW.xls</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
@@ -884,6 +1116,135 @@
     </GUI>
   </step>
   <step>
+    <name>Merge vendas-viagens</name>
+    <type>MergeJoin</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>ordenar o id</step1>
+    <step2>ordenar o IdVenda</step2>
+    <keys_1>
+      <key>id</key>
+    </keys_1>
+    <keys_2>
+      <key>IdVenda</key>
+    </keys_2>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge vendas-viagens 2</name>
+    <type>MergeJoin</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>ordenar o id 2</step1>
+    <step2>ordenar o IdVenda 2</step2>
+    <keys_1>
+      <key>DimensionDate</key>
+    </keys_1>
+    <keys_2>
+      <key>Data</key>
+    </keys_2>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remover dados</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>Preco_Voo</name>
+      </remove>
+      <remove>
+        <name>Preco_Hotel</name>
+      </remove>
+      <remove>
+        <name>Preco_total</name>
+      </remove>
+      <remove>
+        <name>NrDias</name>
+      </remove>
+      <remove>
+        <name>Epoca</name>
+      </remove>
+      <remove>
+        <name>Pais_Part</name>
+      </remove>
+      <remove>
+        <name>Pais_Dest</name>
+      </remove>
+      <remove>
+        <name>Pensao</name>
+      </remove>
+      <remove>
+        <name>IdHotel</name>
+      </remove>
+      <remove>
+        <name>Categoria</name>
+      </remove>
+      <remove>
+        <name>IdRota</name>
+      </remove>
+      <remove>
+        <name>Data</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Remover duplciados</name>
     <type>SelectValues</type>
     <description />
@@ -917,8 +1278,8 @@
     </GUI>
   </step>
   <step>
-    <name>ordenar por IDHotel</name>
-    <type>SortRows</type>
+    <name>Remover duplicados 2</name>
+    <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -927,22 +1288,11 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>IdHotel</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>IdVenda</name>
+      </remove>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -952,14 +1302,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>400</yloc>
+      <xloc>1392</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>ordenar por ID</name>
-    <type>SortRows</type>
+    <name>Remover duplicados 2 2</name>
+    <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -968,156 +1318,15 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>Id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>480</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Venda</name>
-    <type>ExcelInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield />
-    <sheetfield />
-    <sheetrownumfield />
-    <rownumfield />
-    <sheetfield />
-    <filefield />
-    <limit>0</limit>
-    <encoding />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field />
-    <accept_stepname />
-    <file>
-      <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>id</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>DimensionDate</name>
+      </remove>
+      <remove>
         <name>Data</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>ValorVenda</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>NrViagens</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Id_Cliente</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
+      </remove>
     </fields>
-    <sheets>
-      <sheet>
-        <name>Venda</name>
-        <startrow>2</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <spreadsheet_type>JXL</spreadsheet_type>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1126,14 +1335,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>224</yloc>
+      <xloc>992</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Viagem</name>
-    <type>ExcelInput</type>
+    <name>Remover duplicados 2 2 2</name>
+    <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1142,175 +1351,54 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>Y</stoponempty>
-    <filefield />
-    <sheetfield />
-    <sheetrownumfield />
-    <rownumfield />
-    <sheetfield />
-    <filefield />
-    <limit>0</limit>
-    <encoding />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field />
-    <accept_stepname />
-    <file>
-      <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
     <fields>
-      <field>
-        <name>IdViagem</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Preco_Voo</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Preco_Hotel</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Preco_total</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>NrDias</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Epoca</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Pais_Part</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Pais_Dest</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Pensao</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>IdHotel</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>FirstDate</name>
+      </remove>
+      <remove>
+        <name>DayInDimension</name>
+      </remove>
+      <remove>
+        <name>Year</name>
+      </remove>
+      <remove>
+        <name>Quarter</name>
+      </remove>
+      <remove>
+        <name>Month</name>
+      </remove>
+      <remove>
+        <name>Day</name>
+      </remove>
+      <remove>
+        <name>Weekday</name>
+      </remove>
+      <remove>
+        <name>MonthName</name>
+      </remove>
+      <remove>
+        <name>MonthAbbreviation</name>
+      </remove>
+      <remove>
+        <name>DayName</name>
+      </remove>
+      <remove>
+        <name>DayAbbreviation</name>
+      </remove>
+      <remove>
+        <name>YearInDimension</name>
+      </remove>
+      <remove>
+        <name>QuartersInDimension</name>
+      </remove>
+      <remove>
+        <name>MonthInDimension</name>
+      </remove>
+      <remove>
+        <name>DayInYear</name>
+      </remove>
     </fields>
-    <sheets>
-      <sheet>
-        <name>Viagem</name>
-        <startrow>2</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <spreadsheet_type>JXL</spreadsheet_type>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1319,8 +1407,40 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>400</yloc>
+      <xloc>640</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set Date</name>
+    <type>Formula</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <formula>
+      <field_name>DimensionDate</field_name>
+      <formula_string>date(year([FirstDate]); month([FirstDate]); day([FirstDate]) + [DayInDimension] - 1)</formula_string>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1475,6 +1595,409 @@
     </GUI>
   </step>
   <step>
+    <name>Table output 3</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>DB-DW</connection>
+    <schema />
+    <table>ar_cleanup_vendas_e</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>nrViagens</column_name>
+        <stream_name>NrViagens</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Calendario_idData</column_name>
+        <stream_name>DateSid</stream_name>
+      </field>
+      <field>
+        <column_name>idVenda</column_name>
+        <stream_name>id</stream_name>
+      </field>
+      <field>
+        <column_name>valor</column_name>
+        <stream_name>ValorVenda</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Clientes_idCliente</column_name>
+        <stream_name>Id_Cliente</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Viagens_idViagens</column_name>
+        <stream_name>IdViagem</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Venda</name>
+    <type>ExcelInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield />
+    <sheetfield />
+    <sheetrownumfield />
+    <rownumfield />
+    <sheetfield />
+    <filefield />
+    <limit>0</limit>
+    <encoding />
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field />
+    <accept_stepname />
+    <file>
+      <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\VJRC1\Desktop\travel-agency-dw\Excel\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>id</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Data</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>ValorVenda</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>NrViagens</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Id_Cliente</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Venda</name>
+        <startrow>2</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory />
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory />
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory />
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Viagem</name>
+    <type>ExcelInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>Y</stoponempty>
+    <filefield />
+    <sheetfield />
+    <sheetrownumfield />
+    <rownumfield />
+    <sheetfield />
+    <filefield />
+    <limit>0</limit>
+    <encoding />
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field />
+    <accept_stepname />
+    <file>
+      <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\VJRC1\Desktop\travel-agency-dw\Excel\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>IdViagem</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Preco_Voo</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Preco_Hotel</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Preco_total</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>NrDias</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Epoca</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Pais_Part</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Pais_Dest</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>Pensao</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+      <field>
+        <name>IdHotel</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Viagem</name>
+        <startrow>2</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory />
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory />
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory />
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Viagem 2</name>
     <type>ExcelInput</type>
     <description />
@@ -1502,6 +2025,11 @@
     <accept_stepname />
     <file>
       <name>C:\Users\Luís Costa\Desktop\DW\trabalho\DW.xls</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\VJRC1\Desktop\travel-agency-dw\Excel\DW.xls</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
@@ -1716,110 +2244,6 @@
     </GUI>
   </step>
   <step>
-    <name>Remover dados</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>Preco_Voo</name>
-      </remove>
-      <remove>
-        <name>Preco_Hotel</name>
-      </remove>
-      <remove>
-        <name>Preco_total</name>
-      </remove>
-      <remove>
-        <name>NrDias</name>
-      </remove>
-      <remove>
-        <name>Epoca</name>
-      </remove>
-      <remove>
-        <name>Pais_Part</name>
-      </remove>
-      <remove>
-        <name>Pais_Dest</name>
-      </remove>
-      <remove>
-        <name>Pensao</name>
-      </remove>
-      <remove>
-        <name>IdHotel</name>
-      </remove>
-      <remove>
-        <name>Categoria</name>
-      </remove>
-      <remove>
-        <name>IdRota</name>
-      </remove>
-      <remove>
-        <name>Data</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ordenar o id</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>ordenar o IdVenda</name>
     <type>SortRows</type>
     <description />
@@ -1857,431 +2281,6 @@
     <GUI>
       <xloc>912</xloc>
       <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge vendas-viagens</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step1>ordenar o id</step1>
-    <step2>ordenar o IdVenda</step2>
-    <keys_1>
-      <key>id</key>
-    </keys_1>
-    <keys_2>
-      <key>IdVenda</key>
-    </keys_2>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1216</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remover duplicados 2</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>IdVenda</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1392</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output 3</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DB-DW</connection>
-    <schema />
-    <table>ar_cleanup_vendas_e</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-      <field>
-        <column_name>nrViagens</column_name>
-        <stream_name>NrViagens</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Calendario_idData</column_name>
-        <stream_name>DateSid</stream_name>
-      </field>
-      <field>
-        <column_name>idVenda</column_name>
-        <stream_name>id</stream_name>
-      </field>
-      <field>
-        <column_name>valor</column_name>
-        <stream_name>ValorVenda</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Clientes_idCliente</column_name>
-        <stream_name>Id_Cliente</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Viagens_idViagens</column_name>
-        <stream_name>IdViagem</stream_name>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1536</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CalculatedFields</name>
-    <type>Formula</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <formula>
-      <field_name>DateSid</field_name>
-      <formula_string>Year([DimensionDate])*10000 + Month([DimensionDate]) *100 + day([DimensionDate])</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>Year</field_name>
-      <formula_string>year([DimensionDate])
-</formula_string>
-      <value_type>Number</value_type>
-      <value_length>4</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>Quarter</field_name>
-      <formula_string>int(month([DimensionDate])/3 + .9)
-</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>Month</field_name>
-      <formula_string>month([DimensionDate])
-</formula_string>
-      <value_type>Number</value_type>
-      <value_length>2</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>Day</field_name>
-      <formula_string>day([DimensionDate])
-</formula_string>
-      <value_type>Number</value_type>
-      <value_length>2</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>Weekday</field_name>
-      <formula_string>weekday([DimensionDate]; 2)</formula_string>
-      <value_type>Number</value_type>
-      <value_length>1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>MonthName</field_name>
-      <formula_string>TRIM(MID("         January  February March    April    May      June     July     August   SeptemberOctober  November December "; 
-month([DimensionDate])*9+1; 9))</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>MonthAbbreviation</field_name>
-      <formula_string>MID("   JanFebMarAprMayJunJulAugSepOctNovDec"; month([DimensionDate])*3+1; 3)</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>DayName</field_name>
-      <formula_string>TRIM(MID("         Sunday   Monday   Tuesday  WednesdayThursday Friday   Saturday "; weekday([DimensionDate];1)*9+1; 9))</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>DayAbbreviation</field_name>
-      <formula_string>MID("   SunMonTueWedThuFriSatSun"; weekday([DimensionDate];1)*3+1; 3)</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>YearInDimension</field_name>
-      <formula_string>Year([DimensionDate]) - Year([FirstDate]) + 1</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>QuartersInDimension</field_name>
-      <formula_string>if(year([DimensionDate])=year([FirstDate]);int((datedif([FirstDate];[DimensionDate];"m")+1)/3+.9);
-int((datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)/3+.9)+int((datedif([FirstDate];date(year([FirstDate]);12;31);"m")+1)/3+.9))</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>MonthInDimension</field_name>
-      <formula_string>if(year([FirstDate])=year([DimensionDate]);datedif([FirstDate];[DimensionDate];"m")+1;
-datedif([FirstDate];date(year([FirstDate]);12;31);"m")+1) +
-if(year([FirstDate])=year([DimensionDate]);0;
-datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <formula>
-      <field_name>DayInYear</field_name>
-      <formula_string>DateDif(date(year([DimensionDate]);1;1);[DimensionDate];"d")+1</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Day In Dimension</name>
-    <type>Sequence</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <valuename>DayInDimension</valuename>
-    <use_database>N</use_database>
-    <connection />
-    <schema />
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name>DayInDimension</counter_name>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate from Start Date</name>
-    <type>RowGenerator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>FirstDate</name>
-        <type>Date</type>
-        <format>yyyy/MM/dd HH:mm:ss</format>
-        <currency />
-        <decimal />
-        <group />
-        <nullif>2015/01/01 00:00:00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>5475</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms />
-    <row_time_field />
-    <last_time_field />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set Date</name>
-    <type>Formula</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <formula>
-      <field_name>DimensionDate</field_name>
-      <formula_string>date(year([FirstDate]); month([FirstDate]); day([FirstDate]) + [DayInDimension] - 1)</formula_string>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>416</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ordenar o id 2</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>DimensionDate</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
-      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2327,8 +2326,8 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
     </GUI>
   </step>
   <step>
-    <name>Merge vendas-viagens 2</name>
-    <type>MergeJoin</type>
+    <name>ordenar o id</name>
+    <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -2337,15 +2336,23 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <join_type>INNER</join_type>
-    <step1>ordenar o id 2</step1>
-    <step2>ordenar o IdVenda 2</step2>
-    <keys_1>
-      <key>DimensionDate</key>
-    </keys_1>
-    <keys_2>
-      <key>Data</key>
-    </keys_2>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -2354,14 +2361,14 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>1136</xloc>
       <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Remover duplicados 2 2</name>
-    <type>SelectValues</type>
+    <name>ordenar o id 2</name>
+    <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -2370,14 +2377,22 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       <method>none</method>
       <schema_name />
     </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
     <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
+      <field>
         <name>DimensionDate</name>
-      </remove>
-      <remove>
-        <name>Data</name>
-      </remove>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -2387,14 +2402,14 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>176</yloc>
+      <xloc>752</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Remover duplicados 2 2 2</name>
-    <type>SelectValues</type>
+    <name>ordenar por ID</name>
+    <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -2403,53 +2418,22 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       <method>none</method>
       <schema_name />
     </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
     <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>FirstDate</name>
-      </remove>
-      <remove>
-        <name>DayInDimension</name>
-      </remove>
-      <remove>
-        <name>Year</name>
-      </remove>
-      <remove>
-        <name>Quarter</name>
-      </remove>
-      <remove>
-        <name>Month</name>
-      </remove>
-      <remove>
-        <name>Day</name>
-      </remove>
-      <remove>
-        <name>Weekday</name>
-      </remove>
-      <remove>
-        <name>MonthName</name>
-      </remove>
-      <remove>
-        <name>MonthAbbreviation</name>
-      </remove>
-      <remove>
-        <name>DayName</name>
-      </remove>
-      <remove>
-        <name>DayAbbreviation</name>
-      </remove>
-      <remove>
-        <name>YearInDimension</name>
-      </remove>
-      <remove>
-        <name>QuartersInDimension</name>
-      </remove>
-      <remove>
-        <name>MonthInDimension</name>
-      </remove>
-      <remove>
-        <name>DayInYear</name>
-      </remove>
+      <field>
+        <name>Id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -2459,8 +2443,49 @@ datedif(date(year([FirstDate])+1;1;1);[DimensionDate];"m")+1)</formula_string>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>144</yloc>
+      <xloc>240</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ordenar por IDHotel</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>IdHotel</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
