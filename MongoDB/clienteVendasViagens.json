@@ -21,10 +21,10 @@
     "CodPostal" : "4800-200",
     "Vendas" : [
         {
-        "Numero" : 1,
-        "Data" : {"$date":"2016-12-20T10:00:00Z"},
-        "Valor" : 3600,
-        "NrViagens": 2,
+        "Numero" : 4,
+        "Data" : {"$date":"2016-12-20T11:00:00Z"},
+        "Valor" : 1800,
+        "NrViagens": 1,
         "Viagem" : [
             {
                 "Id" : 2,
@@ -41,7 +41,7 @@
         ]
         },
         {
-        "Numero" : 2,
+        "Numero" : 6,
         "Data" : {"$date":"2017-03-25T10:00:00Z"},
         "Valor" : 1550,
         "NrViagens": 1,
@@ -84,10 +84,10 @@
     "CodPostal" : "4200-200",
     "Vendas" : [
         {
-        "Numero" : 3,
+        "Numero" : 12,
         "Data" : {"$date":"2017-10-20T10:00:00Z"},
-        "Valor" : 6000,
-        "NrViagens": 3,
+        "Valor" : 2000,
+        "NrViagens": 1,
         "Viagem" : [
             {
             "Id" : 1,
@@ -104,7 +104,7 @@
         ]
         },
         {
-        "Numero" : 4,
+        "Numero" : 11,
         "Data" : {"$date":"2017-08-10T10:00:00Z"},
         "Valor" : 2900,
         "NrViagens": 1,
@@ -125,26 +125,6 @@
         },
         {
         "Numero" : 5,
-        "Data" : {"$date":"2016-12-10T10:00:00Z"},
-        "Valor" : 1800,
-        "NrViagens": 1,
-        "Viagem" : [
-            {
-            "Id" : 2,
-            "Preco_Voo" : 700,
-            "Preco_Hotel" : 1100,
-            "Preco_Total" : 1800,
-            "Nr_Dias" : 7,
-            "Epoca" : "O",
-            "Data" : {"$date":"2017-02-22T12:05:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Brasil",
-            "Pensao" : "PC"
-            }
-        ]
-        },
-        {
-        "Numero" : 10,
         "Data" : {"$date":"2017-03-15T10:00:00Z"},
         "Valor" : 3800,
         "NrViagens": 2,
@@ -203,28 +183,8 @@
     "CodPostal" : "3200-120",
     "Vendas" : [
         {
-        "Numero" : 6,
-        "Data" : {"$date":"2017-06-20T10:00:00Z"},
-        "Valor" : 2900,
-        "NrViagens": 1,
-        "Viagem" : [
-            {
-            "Id" : 4,
-            "Preco_Voo" : 900,
-            "Preco_Hotel" : 2000,
-            "Preco_Total" : 2900,
-            "Nr_Dias" : 6,
-            "Epoca" : "F",
-            "Data" : {"$date":"2017-08-15T20:00:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
-            "Pensao" : "MP"
-            }
-            ]
-        },
-        {
-        "Numero" : 7,
-        "Data" : {"$date":"2016-06-20T10:00:00Z"},
+        "Numero" : 10,
+        "Data" : {"$date":"2016-07-20T10:00:00Z"},
         "Valor" : 2600,
         "NrViagens": 1,
         "Viagem" : [
@@ -245,8 +205,8 @@
         {
         "Numero" : 8,
         "Data" : {"$date":"2017-06-20T10:00:00Z"},
-        "Valor" : 6200,
-        "NrViagens": 2,
+        "Valor" : 3100,
+        "NrViagens": 1,
         "Viagem" : [
             {
             "Id" : 6,
@@ -263,7 +223,7 @@
             ]
         },
         {
-        "Numero" : 11,
+        "Numero" : 7,
         "Data" : {"$date":"2017-04-25T11:00:00Z"},
         "Valor" : 3150,
         "NrViagens": 3,
@@ -326,10 +286,10 @@
     "CodPostal" : "2800-180",
     "Vendas" : [
         {
-        "Numero" : 7,
-        "Data" : {"$date":"2017-06-20T10:00:00Z"},
-        "Valor" : 2250,
-        "NrViagens": 3,
+        "Numero" : 9,
+        "Data" : {"$date":"2017-06-25T10:00:00Z"},
+        "Valor" : 750,
+        "NrViagens": 1,
         "Viagem" : [
             {
             "Id" : 7,
@@ -346,10 +306,10 @@
             ]
         },
         {
-        "Numero" : 8,
+        "Numero" : 1,
         "Data" : {"$date":"2015-06-20T10:00:00Z"},
-        "Valor" : 2000,
-        "NrViagens": 2,
+        "Valor" : 1000,
+        "NrViagens": 1,
         "Viagem" : [
             {
             "Id" : 8,
@@ -366,7 +326,7 @@
             ]
         },
         {
-        "Numero" : 12,
+        "Numero" : 3,
         "Data" : {"$date":"2016-12-20T10:00:00Z"},
         "Valor" : 1900,
         "NrViagens": 1,
@@ -405,47 +365,7 @@
     "CodPostal" : "2800-180",
     "Vendas" : [
         {
-        "Numero" : 8,
-        "Data" : {"$date":"2017-04-10T10:00:00Z"},
-        "Valor" : 1500,
-        "NrViagens": 2,
-        "Viagem" : [
-            {
-            "Id" : 7,
-            "Preco_Voo" : 150,
-            "Preco_Hotel" : 600,
-            "Preco_Total" : 750,
-            "Nr_Dias" : 6,
-            "Epoca" : "F",
-            "Data" : {"$date":"2017-08-01T06:45:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
-            "Pensao" : "MP"
-            }
-            ]
-        },
-        {
-        "Numero" : 9,
-        "Data" : {"$date":"2015-03-15T17:00:00Z"},
-        "Valor" : 1300,
-        "NrViagens": 2,
-        "Viagem" : [
-            {
-            "Id" : 9,
-            "Preco_Voo" : 150,
-            "Preco_Hotel" : 500,
-            "Preco_Total" : 650,
-            "Nr_Dias" : 5,
-            "Epoca" : "O",
-            "Data" : {"$date":"2017-02-20T06:45:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
-            "Pensao" : "MP"
-            }
-            ]
-        },
-        {
-        "Numero" : 13,
+        "Numero" : 2,
         "Data" : {"$date":"2016-02-04T18:30:00Z"},
         "Valor" : 7350,
         "NrViagens": 5,
