@@ -1,6 +1,7 @@
+-- for ar_dim_calendario
+DROP TRIGGER IF EXISTS timeYearAndDayWeek;
 DELIMITER //
 
-DROP TRIGGER IF EXISTS timeYearAndDayWeek;
 CREATE TRIGGER timeYearAndDayWeek
 BEFORE INSERT ON ardw.ar_dim_calendario FOR EACH ROW
 BEGIN
@@ -56,6 +57,48 @@ BEGIN
     ELSE BEGIN END;
     
     END CASE;
+    
+END;
+//
+
+DELIMITER ;
+
+
+-- for ar_cleanup_vendas_m on idData
+DROP TRIGGER IF EXISTS idDataMongoVendas;
+DELIMITER //
+
+CREATE TRIGGER idDataMongoVendas
+BEFORE INSERT ON ardw.ar_cleanup_vendas_m FOR EACH ROW
+BEGIN
+	
+	DECLARE dia, mes, ano BIGINT;
+	SET ano = year(NEW.dataVenda);
+    SET mes = month(NEW.dataVenda);
+    SET dia = dayofmonth(NEW.dataVenda);
+    
+    SET NEW.`DIM-Calendario_idData` = ano*10000 + mes*100 + dia;
+    
+END;
+//
+
+DELIMITER ;
+
+
+-- for ar_cleanup_viagens_m on idData
+DROP TRIGGER IF EXISTS idDataMongoViagens;
+DELIMITER //
+
+CREATE TRIGGER idDataMongoViagens
+BEFORE INSERT ON ardw.ar_cleanup_viagens_m FOR EACH ROW
+BEGIN
+	
+	DECLARE dia, mes, ano BIGINT;
+	SET ano = year(NEW.dataViagem);
+    SET mes = month(NEW.dataViagem);
+    SET dia = dayofmonth(NEW.dataViagem);
+    
+    SET NEW.`DIM_Calendario_idData` = ano*10000 + mes*100 + dia;
     
 END;
 //
