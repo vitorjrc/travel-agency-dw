@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>huhu</name>
+    <name>mysqlToAR</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -443,7 +444,7 @@
     <database>ardw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7a893aa14ab7edb85bc8d</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -498,7 +499,7 @@
     <database>belomundo</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7a893aa14ab7edb85bc8d</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79a071d181aad3</password>
     <servername />
     <data_tablespace />
     <index_tablespace />

@@ -2,7 +2,7 @@
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema arDW
@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Vendas_M` (
   `nrViagens` INT NULL,
   `DIM-Clientes_idCliente` INT NULL,
   `DIM-Viagens_idViagens` INT NULL,
-  `DIM-Calendario_idData` INT NULL)
+  `DIM-Calendario_idData` INT NULL,
+  `dataVenda` DATE NULL)
 ENGINE = InnoDB;
 
 
@@ -53,7 +54,8 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Viagens_M` (
   `paisDest` VARCHAR(45) NULL,
   `pensao` CHAR(2) NULL,
   `nomeHotel` VARCHAR(45) NULL,
-  `DIM_Calendario_dataViagem` INT NULL)
+  `DIM_Calendario_idData` INT NULL,
+  `dataViagem` DATE NULL)
 ENGINE = InnoDB;
 
 
@@ -238,7 +240,8 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Calendario` (
   `diaAno` VARCHAR(45) NULL,
   `mesAno` VARCHAR(45) NULL,
   `trimestre` VARCHAR(45) NULL,
-  `epoca` VARCHAR(45) NULL)
+  `epoca` VARCHAR(45) NULL,
+  `data` DATE NULL)
 ENGINE = InnoDB;
 
 

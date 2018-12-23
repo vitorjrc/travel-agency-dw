@@ -1,6 +1,7 @@
+-- for ar_dim_calendario
+DROP TRIGGER IF EXISTS timeYearAndDayWeek;
 DELIMITER //
 
-DROP TRIGGER IF EXISTS timeYearAndDayWeek;
 CREATE TRIGGER timeYearAndDayWeek
 BEFORE INSERT ON ardw.ar_dim_calendario FOR EACH ROW
 BEGIN
