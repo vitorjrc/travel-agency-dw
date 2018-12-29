@@ -606,8 +606,13 @@
       <schema_name />
     </partitioning>
     <connection>TravelAgency</connection>
-    <sql>select venda.Numero, venda.Valor, venda.Nr_Viagens, venda.Cliente_Id, viagem.Id, (SELECT YEAR(venda.Data) * 10000 + MONTH(venda.Data) * 100 + DAY(venda.data)) as Data from venda 
-	join viagem on viagem.Id = venda.Numero</sql>
+    <sql>select venda.Numero AS vendaNumero,
+venda.Valor AS vendaValor,
+venda.Nr_Viagens AS vendaNRViagens,
+venda.Cliente_Id AS vendaClienteID,
+viagem.Id AS viagemID,
+(SELECT YEAR(venda.Data) * 10000 + MONTH(venda.Data) * 100 + DAY(venda.data)) as Data from venda 
+	join viagem on viagem.Venda_Numero = venda.Numero</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -639,7 +644,7 @@
     </partitioning>
     <connection>TravelAgency</connection>
     <sql>SELECT viagem.Id, viagem.Preco_Voo, viagem.Preco_Hotel, viagem.Preco_Total, viagem.Nr_Dias, viagem.Epoca, viagem.Pais_Part, viagem.Pais_Dest, viagem.Pensao, hotel.Nome from viagem 
-	join hotel on viagem.Id = hotel.Codigo</sql>
+	join hotel on viagem.Hotel_Codigo = hotel.Codigo</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -751,28 +756,28 @@
     <return_field />
     <fields>
       <field>
-        <column_name>valor</column_name>
-        <stream_name>Valor</stream_name>
-      </field>
-      <field>
-        <column_name>idVenda</column_name>
-        <stream_name>Id</stream_name>
-      </field>
-      <field>
         <column_name>DIM-Calendario_idData</column_name>
         <stream_name>Data</stream_name>
       </field>
       <field>
+        <column_name>DIM-Viagens_idViagens</column_name>
+        <stream_name>viagemID</stream_name>
+      </field>
+      <field>
         <column_name>DIM-Clientes_idCliente</column_name>
-        <stream_name>Cliente_Id</stream_name>
+        <stream_name>vendaClienteID</stream_name>
       </field>
       <field>
         <column_name>nrViagens</column_name>
-        <stream_name>Nr_Viagens</stream_name>
+        <stream_name>vendaNRViagens</stream_name>
       </field>
       <field>
-        <column_name>DIM-Viagens_idViagens</column_name>
-        <stream_name>Numero</stream_name>
+        <column_name>valor</column_name>
+        <stream_name>vendaValor</stream_name>
+      </field>
+      <field>
+        <column_name>idVenda</column_name>
+        <stream_name>vendaNumero</stream_name>
       </field>
     </fields>
     <cluster_schema />
