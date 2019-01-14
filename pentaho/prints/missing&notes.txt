@@ -1,0 +1,7 @@
+Diagramas q faltam:
+
+- excel (vai ser alterado na parte da data)
+- excelTO_DW
+
+Notas:
+AR desatualizada!
