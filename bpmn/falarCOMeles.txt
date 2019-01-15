@@ -1,0 +1,18 @@
+Tópicos a discutir:
+
+- AR desatualizada (tabelas que nao usamos)
+----------------------------------------------------------------------------------------
+- Limpeza e conformidade, basicamente, já foram feitas aquando do extract
+	(mostrar a dos gajos e confirmar)
+- conformidade acho que não vou fazer como a dos gajos, é feita no load 				---------------> se isto assim for, mudar esquema BPMN 'ETLprocess'
+	(mostrar a dos gajos e confirmar)
+
+- conclusao: basicamente temos as nossas transformações embutidas do extract e load
+----------------------------------------------------------------------------------------
+- Os gajos têm bué tabelas na AR, várias para cleanup, várias p conformidade, várias p 
+  conciliação, quarentena, .... Não vamos fazer nada disto? Não é melhor falar com o 
+  Belo para confirmar as nossas decisões? (temos tudo certo, apenas não no formato que
+  ele originalmente deu. não deverá ser problemático)
+----------------------------------------------------------------------------------------
+- diagrama, por exemplo, mongodbTO_DW (prints pentaho) explicar input DW_clientes. É por causa de
+  gerar já as SK? n seria melhor o esquema fisico do mysql fazer isso pq já guarda o número da AI para a SK?

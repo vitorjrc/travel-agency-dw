@@ -1,0 +1,4 @@
+Diagramas q faltam:
+
+- excel (vai ser alterado na parte da data)
+- excelTO_DW (criação disto resulta em +1 print e update no print "mysqlANDmongodbTO_DW_DIM")
