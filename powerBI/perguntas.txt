@@ -1,0 +1,55 @@
+Introdução teórica: as perguntas são feitas no formado "medida da TF por dimensão", 
+					ou "medida da TF por atributo de dimensão". Outra maneira possível
+					também é pelo número de vendas (que deriva da contagem de registos
+					na TF): por exemplo, número de vendas por semestre -> número de vendas
+					não é uma medida da TF, mas é possível contar as vendas que têm como
+					semestre X.
+
+
+
+Nota1: estas perguntas podem não ser todas possíveis de responder, na medida em que podemos
+	  não ter dados suficientes para obter gráficos relevantes
+
+
+
+Nota2: podem ser feitas muito mais perguntas, estas foram as que me pareceram mais úteis
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Perguntas possíveis de serem feitas ao DW:
+
+		- Medida: valor
+			
+			- Qual o valor médio das vendas por época, mês, trimestre, dia da semana (semana vs fim de semana)? 
+			- Qual o valor médio e/ou total(soma) das vendas por cliente? (5 ou 10 clientes com mais poder de compra)
+			- Qual o valor médio de vendas por local de cliente? (regiões com mais poder de compra)
+			- Qual o valor total(soma) das vendas por país de destino? (destinos mais populares)
+			- Qual o valor médio das vendas por número de dias de viagem? (descobrir se realmente um menor numero de dias corresponde a viagens com custo menor ou clientes não olham a custos)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+		- Medida: nrViagens (ESTE NRVIAGENS != NR VENDAS. ISTO É O Nº DE VIAGENS POR UMA VENDA)
+			
+			- Qual o número de viagens típica de uma venda por cliente?
+			- Qual o número de viagens de uma venda por época, mês, trimestre, dia da semana? (épocas do ano em que se compram mais viagens (férias familiares), ou menos viagens por venda (férias negócios))
+			- Qual o número de viagens de uma venda para cada país de destino?
+			- Qual o número de viagens de uma venda por pensão? (pensões mais escolhidas)
+			- Qual o número viagens de uma venda por número de dias? (se comprar menos viagens implica viagens menores porque é uma viagem de negócios, ou pelo contrário, comprar mais viagens significa maior número de dias como numas férias familiares)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+		- Outras
+			- Número de vendas por cliente? (cliente que mais compra viagens, independentemente do tipo)
+			- Número de vendas por época, mês, trimestre, dia da semana?
+			- Número de vendas por preços de voo? (organizar gráfico por intervalos de preços, e talvez uma curva com a distribuição de quantidade de vendas de acordo com o preço)
+			- Número de vendas por preços de hotel? (organizar gráfico por intervalos de preços, e talvez uma curva com a distribuição de quantidade de vendas de acordo com o preço)
+			- Número de vendas por número de dias? (organizar gráfico por intervalos de dias, e talvez uma curva com a distribuição de quantidade de vendas de acordo com o nº de dias)
+			- Número de vendas por pensão?
+			- Número de vendas por hotel?
+			- Número de vendas por país de destino?
