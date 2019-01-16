@@ -16,3 +16,18 @@ Tópicos a discutir:
 ----------------------------------------------------------------------------------------
 - diagrama, por exemplo, mongodbTO_DW (prints pentaho) explicar input DW_clientes. É por causa de
   gerar já as SK? n seria melhor o esquema fisico do mysql fazer isso pq já guarda o número da AI para a SK?
+
+
+
+
+
+  TODO:
+
+  limpeza: igual aos gajos com o nulo (sem a capitalizaçao)
+  conformidade: juntar primeiro e ultimo nome
+  conciliação: - parte de cima igual à dos gajos (menos inserção na pré dimensão: fica dimensão mesmo)
+  			   - quarentena também mantém
+
+  - alterar extraçao excel mantém geração de datas bpmn
+
+  - fazer perguntas
