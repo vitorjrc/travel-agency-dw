@@ -630,7 +630,7 @@
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idCliente, nif, profissao, local, first_name, last_name FROM ardw.ar_cleanup_cliente_e</sql>
+    <sql>SELECT nif, profissao, local, first_name, last_name FROM ardw.ar_cleanup_cliente_e</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -661,7 +661,7 @@
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idCliente, nif, profissao, local, nome FROM ardw.ar_cleanup_cliente_m</sql>
+    <sql>SELECT nif, profissao, local, nome FROM ardw.ar_cleanup_cliente_m</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -692,7 +692,7 @@
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idCliente, nif, profissao, local, nome FROM ardw.ar_cleanup_cliente_s</sql>
+    <sql>SELECT nif, profissao, local, nome FROM ardw.ar_cleanup_cliente_s</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -723,7 +723,7 @@
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idViagens, precoVoo, precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
+    <sql>SELECT precoVoo, precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
 FROM ardw.ar_cleanup_viagens_e</sql>
     <limit>0</limit>
     <lookup />
@@ -755,7 +755,7 @@ FROM ardw.ar_cleanup_viagens_e</sql>
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idViagens, precoVoo, precoHotal AS precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
+    <sql>SELECT precoVoo, precoHotal AS precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
 FROM ardw.ar_cleanup_viagens_m</sql>
     <limit>0</limit>
     <lookup />
@@ -787,7 +787,7 @@ FROM ardw.ar_cleanup_viagens_m</sql>
       <schema_name />
     </partitioning>
     <connection>ARDW</connection>
-    <sql>SELECT idViagens, precoVoo, precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
+    <sql>SELECT precoVoo, precoHotel, precoTotal, nrDias, epoca, paisPart, paisDest, pensao, nomeHotel
 FROM ardw.ar_cleanup_viagens_s</sql>
     <limit>0</limit>
     <lookup />
@@ -845,11 +845,6 @@ FROM ardw.ar_cleanup_viagens_s</sql>
       <value>
         <name>local</name>
         <rename>local</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>idCliente</name>
-        <rename>idCliente</rename>
         <update>N</update>
       </value>
       <value>
@@ -952,11 +947,6 @@ FROM ardw.ar_cleanup_viagens_s</sql>
         <condition>=</condition>
         <name2 />
       </key>
-      <value>
-        <name>idViagens</name>
-        <rename>idViagens</rename>
-        <update>N</update>
-      </value>
       <value>
         <name>precoVoo</name>
         <rename>precoVoo</rename>
