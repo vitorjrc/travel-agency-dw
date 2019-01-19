@@ -42,7 +42,7 @@ INSERT INTO LocalCliente
 		(3, 'Mafra'), -- Lisboa
 		(4, 'Portimão'), -- Faro
 		(5, 'Guimarães'), -- Braga
-		(6, 'Sintra'), -- Lisboa
+		(6, null), -- Antes era Sintra (pertencente a Lisboa)
 		(7, 'Lamego'), -- Viseu
 		(8, 'Boticas'), -- Vila Real
 		(9, 'Penafiel'), -- Porto
