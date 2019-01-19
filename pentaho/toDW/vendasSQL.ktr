@@ -549,22 +549,22 @@
   <order>
     <hop>
       <from>AR Clientes MySQL</from>
-      <to>Sort per ID and NIF</to>
+      <to>Sort per NIF</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>DW Clientes</from>
-      <to>Sort per ID and NIF 2</to>
+      <to>Sort per NIF 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort per ID and NIF</from>
-      <to>Merge on ID and NIF</to>
+      <from>Sort per NIF</from>
+      <to>Merge on NIF (get sk)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort per ID and NIF 2</from>
-      <to>Merge on ID and NIF</to>
+      <from>Sort per NIF 2</from>
+      <to>Merge on NIF (get sk)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -573,7 +573,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge on ID and NIF</from>
+      <from>Merge on NIF (get sk)</from>
       <to>Sort on idCliente</to>
       <enabled>Y</enabled>
     </hop>
@@ -593,58 +593,43 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR Viagens MySQL</from>
-      <to>Sort rows per ALL</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DW Viagens</from>
-      <to>Sort rows per ALL 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort on idViagens</from>
-      <to>Removing unused values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Removing unused values 2</from>
-      <to>Merge on IDViagem</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge on IDViagem</from>
+      <from>Merge on IDViagem from Viagens</from>
       <to>Removing unused values 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Removing unused values 3</from>
-      <to>DW Vendas</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Removing unused values</from>
-      <to>Sort on IDViagem</to>
+      <to>Sort on DIM-Viagens_idViagens</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort on IDViagem</from>
-      <to>Merge on IDViagem</to>
+      <from>Sort on DIM-Viagens_idViagens</from>
+      <to>Merge on IDViagem from Viagens</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows per ALL</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows per ALL 2</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup</from>
+      <from>Removing unused values 2</from>
       <to>Sort on idViagens</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort on idViagens</from>
+      <to>Merge on IDViagem from Viagens</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>AR Viagens MySQL</from>
+      <to>Database lookup DW Viagens (get sk)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup DW Viagens (get sk)</from>
+      <to>Removing unused values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Removing unused values 3</from>
+      <to>Table output DW Vendas</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -761,7 +746,7 @@ FROM ar_cleanup_viagens_s
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>384</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -778,8 +763,7 @@ FROM ar_cleanup_viagens_s
     </partitioning>
     <connection>DW</connection>
     <sql>SELECT
-  idCliente
-, nif
+  nif
 , skCliente
 FROM `dim-clientes`
 </sql>
@@ -802,118 +786,7 @@ FROM `dim-clientes`
     </GUI>
   </step>
   <step>
-    <name>DW Vendas</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW</connection>
-    <schema />
-    <table>tf-vendas</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-      <field>
-        <column_name>idVenda</column_name>
-        <stream_name>idVenda</stream_name>
-      </field>
-      <field>
-        <column_name>valor</column_name>
-        <stream_name>valor</stream_name>
-      </field>
-      <field>
-        <column_name>nrViagens</column_name>
-        <stream_name>nrViagens</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Calendario_idData</column_name>
-        <stream_name>DIM-Calendario_idData</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Clientes_skCliente</column_name>
-        <stream_name>skCliente</stream_name>
-      </field>
-      <field>
-        <column_name>DIM-Viagens_skViagem</column_name>
-        <stream_name>skViagem</stream_name>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DW Viagens</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW</connection>
-    <sql>SELECT
-  idViagens
-, precoVoo
-, precoHotel
-, precoTotal
-, nrDias
-, epoca
-, paisPart
-, paisDest
-, pensao
-, nomeHotel
-, skViagem
-FROM `dim-viagens`
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>480</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge on ID and NIF</name>
+    <name>Merge on NIF (get sk)</name>
     <type>MergeJoin</type>
     <description />
     <distribute>Y</distribute>
@@ -924,14 +797,12 @@ FROM `dim-viagens`
       <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Sort per ID and NIF</step1>
-    <step2>Sort per ID and NIF 2</step2>
+    <step1>Sort per NIF</step1>
+    <step2>Sort per NIF 2</step2>
     <keys_1>
-      <key>idCliente</key>
       <key>nif</key>
     </keys_1>
     <keys_2>
-      <key>idCliente</key>
       <key>nif</key>
     </keys_2>
     <cluster_schema />
@@ -981,7 +852,7 @@ FROM `dim-viagens`
     </GUI>
   </step>
   <step>
-    <name>Merge on IDViagem</name>
+    <name>Merge on IDViagem from Viagens</name>
     <type>MergeJoin</type>
     <description />
     <distribute>Y</distribute>
@@ -991,9 +862,9 @@ FROM `dim-viagens`
       <method>none</method>
       <schema_name />
     </partitioning>
-    <join_type>FULL OUTER</join_type>
-    <step1>Removing unused values 2</step1>
-    <step2>Sort on IDViagem</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort on idViagens</step1>
+    <step2>Sort on DIM-Viagens_idViagens</step2>
     <keys_1>
       <key>idViagens</key>
     </keys_1>
@@ -1026,22 +897,28 @@ FROM `dim-viagens`
     </partitioning>
     <fields>
       <field>
-        <name>idVenda</name>
-      </field>
-      <field>
         <name>valor</name>
+        <rename />
       </field>
       <field>
         <name>nrViagens</name>
+        <rename />
       </field>
       <field>
         <name>DIM-Calendario_idData</name>
+        <rename />
       </field>
       <field>
         <name>skCliente</name>
+        <rename />
       </field>
       <field>
         <name>DIM-Viagens_idViagens</name>
+        <rename />
+      </field>
+      <field>
+        <name>idVenda</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1072,9 +949,11 @@ FROM `dim-viagens`
     <fields>
       <field>
         <name>idViagens</name>
+        <rename />
       </field>
       <field>
         <name>skViagem</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1086,7 +965,7 @@ FROM `dim-viagens`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>576</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1095,7 +974,7 @@ FROM `dim-viagens`
     <name>Removing unused values 3</name>
     <type>SelectValues</type>
     <description />
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -1105,21 +984,27 @@ FROM `dim-viagens`
     <fields>
       <field>
         <name>idVenda</name>
+        <rename />
       </field>
       <field>
         <name>valor</name>
+        <rename />
       </field>
       <field>
         <name>nrViagens</name>
+        <rename />
       </field>
       <field>
         <name>DIM-Calendario_idData</name>
+        <rename />
       </field>
       <field>
         <name>skCliente</name>
+        <rename />
       </field>
       <field>
         <name>skViagem</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1131,7 +1016,7 @@ FROM `dim-viagens`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
+      <xloc>976</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1178,7 +1063,7 @@ FROM `dim-viagens`
     </GUI>
   </step>
   <step>
-    <name>Sort on IDViagem</name>
+    <name>Sort on DIM-Viagens_idViagens</name>
     <type>SortRows</type>
     <description />
     <distribute>N</distribute>
@@ -1295,13 +1180,13 @@ FROM `dim-viagens`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
+      <xloc>736</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort per ID and NIF</name>
+    <name>Sort per NIF</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1319,14 +1204,6 @@ FROM `dim-viagens`
     <compress_variable />
     <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>idCliente</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
       <field>
         <name>nif</name>
         <ascending>Y</ascending>
@@ -1350,7 +1227,7 @@ FROM `dim-viagens`
     </GUI>
   </step>
   <step>
-    <name>Sort per ID and NIF 2</name>
+    <name>Sort per NIF 2</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1368,14 +1245,6 @@ FROM `dim-viagens`
     <compress_variable />
     <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>idCliente</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
       <field>
         <name>nif</name>
         <ascending>Y</ascending>
@@ -1399,234 +1268,8 @@ FROM `dim-viagens`
     </GUI>
   </step>
   <step>
-    <name>Sort rows per ALL</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>idViagens</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoVoo</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoHotel</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoTotal</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nrDias</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>epoca</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>paisPart</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>paisDest</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>pensao</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nomeHotel</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows per ALL 2</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>idViagens</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoVoo</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoHotel</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>precoTotal</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nrDias</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>epoca</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>paisPart</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>paisDest</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>pensao</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nomeHotel</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>480</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
+    <name>Database lookup DW Viagens (get sk)</name>
+    <type>DBLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1635,47 +1278,69 @@ FROM `dim-viagens`
       <method>none</method>
       <schema_name />
     </partitioning>
-    <from>Sort rows per ALL 2</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
+    <connection>DW</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
     <lookup>
+      <schema />
+      <table>dim-viagens</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>precoVoo</name>
         <field>precoVoo</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>precoHotel</name>
         <field>precoHotel</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>precoTotal</name>
         <field>precoTotal</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>nrDias</name>
         <field>nrDias</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>epoca</name>
         <field>epoca</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>paisPart</name>
         <field>paisPart</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>paisDest</name>
         <field>paisDest</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>pensao</name>
         <field>pensao</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <key>
         <name>nomeHotel</name>
         <field>nomeHotel</field>
+        <condition>=</condition>
+        <name2 />
       </key>
       <value>
         <name>skViagem</name>
@@ -1692,8 +1357,75 @@ FROM `dim-viagens`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>320</xloc>
       <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output DW Vendas</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>DW</connection>
+    <schema />
+    <table>tf-vendas</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>idVenda</column_name>
+        <stream_name>idVenda</stream_name>
+      </field>
+      <field>
+        <column_name>valor</column_name>
+        <stream_name>valor</stream_name>
+      </field>
+      <field>
+        <column_name>nrViagens</column_name>
+        <stream_name>nrViagens</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Calendario_idData</column_name>
+        <stream_name>DIM-Calendario_idData</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Clientes_skCliente</column_name>
+        <stream_name>skCliente</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Viagens_skViagem</column_name>
+        <stream_name>skViagem</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
