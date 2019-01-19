@@ -549,36 +549,36 @@
   <order>
     <hop>
       <from>AR Clientes MongoDB</from>
-      <to>Sort rows per NIF</to>
+      <to>Sort rows per NIF, Profissao, Local</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>AR Clientes MySQL</from>
-      <to>Sort rows per NIF 2</to>
+      <to>Sort rows per NIF, Profissao, Local 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>AR Clientes Excel</from>
-      <to>Sort rows per NIF 3</to>
+      <to>Sort rows per NIF, Profissao, Local 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows per NIF</from>
-      <to>Unique Clientes per NIF</to>
+      <from>Sort rows per NIF, Profissao, Local</from>
+      <to>Unique Clientes per NIF, Profissao, Local</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows per NIF 2</from>
-      <to>Unique Clientes per NIF</to>
+      <from>Sort rows per NIF, Profissao, Local 2</from>
+      <to>Unique Clientes per NIF, Profissao, Local</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows per NIF 3</from>
-      <to>Unique Clientes per NIF</to>
+      <from>Sort rows per NIF, Profissao, Local 3</from>
+      <to>Unique Clientes per NIF, Profissao, Local</to>
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>Unique Clientes per NIF</from>
+      <from>Unique Clientes per NIF, Profissao, Local</from>
       <to>Insert / Update DW Clientes</to>
       <enabled>Y</enabled>
     </hop>
@@ -830,10 +830,22 @@ FROM ardw.ar_cleanup_viagens_s</sql>
         <condition>=</condition>
         <name2 />
       </key>
+      <key>
+        <name>profissao</name>
+        <field>profissao</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>local</name>
+        <field>local</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
       <value>
         <name>local</name>
         <rename>local</rename>
-        <update>Y</update>
+        <update>N</update>
       </value>
       <value>
         <name>idCliente</name>
@@ -1005,7 +1017,7 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     </GUI>
   </step>
   <step>
-    <name>Sort rows per NIF</name>
+    <name>Sort rows per NIF, Profissao, Local</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1025,6 +1037,22 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     <fields>
       <field>
         <name>nif</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>profissao</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>local</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1046,7 +1074,7 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     </GUI>
   </step>
   <step>
-    <name>Sort rows per NIF 2</name>
+    <name>Sort rows per NIF, Profissao, Local 2</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1072,6 +1100,22 @@ FROM ardw.ar_cleanup_viagens_s</sql>
         <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
+      <field>
+        <name>profissao</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>local</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1087,7 +1131,7 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     </GUI>
   </step>
   <step>
-    <name>Sort rows per NIF 3</name>
+    <name>Sort rows per NIF, Profissao, Local 3</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1107,6 +1151,22 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     <fields>
       <field>
         <name>nif</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>profissao</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>local</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1443,7 +1503,7 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     </GUI>
   </step>
   <step>
-    <name>Unique Clientes per NIF</name>
+    <name>Unique Clientes per NIF, Profissao, Local</name>
     <type>Unique</type>
     <description />
     <distribute>Y</distribute>
@@ -1461,6 +1521,14 @@ FROM ardw.ar_cleanup_viagens_s</sql>
       <field>
         <name>nif</name>
         <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>profissao</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>local</name>
+        <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
     <cluster_schema />
@@ -1543,6 +1611,18 @@ FROM ardw.ar_cleanup_viagens_s</sql>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Insert / Update DW Clientes</source_step>
+      <target_step>Table output</target_step>
+      <is_enabled>N</is_enabled>
+      <nr_valuename />
+      <descriptions_valuename />
+      <fields_valuename />
+      <codes_valuename />
+      <max_errors />
+      <max_pct_errors />
+      <min_pct_rows />
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
