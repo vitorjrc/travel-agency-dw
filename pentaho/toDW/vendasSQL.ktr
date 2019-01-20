@@ -618,7 +618,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR Viagens MySQL</from>
+      <from>AR NOVAS Viagens MySQL</from>
       <to>Database lookup DW Viagens (get sk)</to>
       <enabled>Y</enabled>
     </hop>
@@ -708,7 +708,7 @@ FROM ar_cleanup_vendas_s
     </GUI>
   </step>
   <step>
-    <name>AR Viagens MySQL</name>
+    <name>AR NOVAS Viagens MySQL</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -720,6 +720,9 @@ FROM ar_cleanup_vendas_s
     </partitioning>
     <connection>ARDW</connection>
     <sql>SELECT
+  *
+FROM (
+SELECT
   idViagens
 , precoVoo
 , precoHotel
@@ -731,7 +734,22 @@ FROM ar_cleanup_vendas_s
 , pensao
 , nomeHotel
 FROM ar_cleanup_viagens_s
-</sql>
+UNION ALL
+SELECT
+  idViagens
+, precoVoo
+, precoHotel
+, precoTotal
+, nrDias
+, epoca
+, paisPart
+, paisDest
+, pensao
+, nomeHotel
+FROM ar_cleanup_viagens_s_previous
+) unidos
+GROUP BY idViagens
+HAVING count(idViagens) = 1</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -786,8 +804,8 @@ FROM `dim-clientes`
     </GUI>
   </step>
   <step>
-    <name>Merge on NIF (get sk)</name>
-    <type>MergeJoin</type>
+    <name>Database lookup DW Viagens (get sk)</name>
+    <type>DBLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -796,15 +814,77 @@ FROM `dim-clientes`
       <method>none</method>
       <schema_name />
     </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Sort per NIF</step1>
-    <step2>Sort per NIF 2</step2>
-    <keys_1>
-      <key>nif</key>
-    </keys_1>
-    <keys_2>
-      <key>nif</key>
-    </keys_2>
+    <connection>DW</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>dim-viagens</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>precoVoo</name>
+        <field>precoVoo</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>precoHotel</name>
+        <field>precoHotel</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>precoTotal</name>
+        <field>precoTotal</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>nrDias</name>
+        <field>nrDias</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>epoca</name>
+        <field>epoca</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>paisPart</name>
+        <field>paisPart</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>paisDest</name>
+        <field>paisDest</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>pensao</name>
+        <field>pensao</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>nomeHotel</name>
+        <field>nomeHotel</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>skViagem</name>
+        <rename>skViagem</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -814,7 +894,7 @@ FROM `dim-clientes`
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>176</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -885,6 +965,39 @@ FROM `dim-clientes`
     </GUI>
   </step>
   <step>
+    <name>Merge on NIF (get sk)</name>
+    <type>MergeJoin</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort per NIF</step1>
+    <step2>Sort per NIF 2</step2>
+    <keys_1>
+      <key>nif</key>
+    </keys_1>
+    <keys_2>
+      <key>nif</key>
+    </keys_2>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Removing unused values</name>
     <type>SelectValues</type>
     <description />
@@ -898,27 +1011,21 @@ FROM `dim-clientes`
     <fields>
       <field>
         <name>valor</name>
-        <rename />
       </field>
       <field>
         <name>nrViagens</name>
-        <rename />
       </field>
       <field>
         <name>DIM-Calendario_idData</name>
-        <rename />
       </field>
       <field>
         <name>skCliente</name>
-        <rename />
       </field>
       <field>
         <name>DIM-Viagens_idViagens</name>
-        <rename />
       </field>
       <field>
         <name>idVenda</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -949,11 +1056,9 @@ FROM `dim-clientes`
     <fields>
       <field>
         <name>idViagens</name>
-        <rename />
       </field>
       <field>
         <name>skViagem</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -984,27 +1089,21 @@ FROM `dim-clientes`
     <fields>
       <field>
         <name>idVenda</name>
-        <rename />
       </field>
       <field>
         <name>valor</name>
-        <rename />
       </field>
       <field>
         <name>nrViagens</name>
-        <rename />
       </field>
       <field>
         <name>DIM-Calendario_idData</name>
-        <rename />
       </field>
       <field>
         <name>skCliente</name>
-        <rename />
       </field>
       <field>
         <name>skViagem</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1018,47 +1117,6 @@ FROM `dim-clientes`
     <GUI>
       <xloc>976</xloc>
       <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort on DIM_IDCliente</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>DIM-Clientes_idCliente</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1100,6 +1158,47 @@ FROM `dim-clientes`
     <GUI>
       <xloc>752</xloc>
       <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort on DIM_IDCliente</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DIM-Clientes_idCliente</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1264,101 +1363,6 @@ FROM `dim-clientes`
     <GUI>
       <xloc>192</xloc>
       <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Database lookup DW Viagens (get sk)</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>dim-viagens</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>precoVoo</name>
-        <field>precoVoo</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>precoHotel</name>
-        <field>precoHotel</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>precoTotal</name>
-        <field>precoTotal</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>nrDias</name>
-        <field>nrDias</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>epoca</name>
-        <field>epoca</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>paisPart</name>
-        <field>paisPart</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>paisDest</name>
-        <field>paisDest</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>pensao</name>
-        <field>pensao</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>nomeHotel</name>
-        <field>nomeHotel</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>skViagem</name>
-        <rename>skViagem</rename>
-        <default />
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

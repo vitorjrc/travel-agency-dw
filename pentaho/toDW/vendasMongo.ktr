@@ -720,6 +720,9 @@ FROM ar_cleanup_vendas_m
     </partitioning>
     <connection>ARDW</connection>
     <sql>SELECT
+  *
+FROM (
+SELECT
   idViagens
 , precoVoo
 , precoHotal
@@ -731,6 +734,22 @@ FROM ar_cleanup_vendas_m
 , pensao
 , nomeHotel
 FROM ar_cleanup_viagens_m
+UNION ALL
+SELECT
+  idViagens
+, precoVoo
+, precoHotal
+, precoTotal
+, nrDias
+, epoca
+, paisPart
+, paisDest
+, pensao
+, nomeHotel
+FROM ar_cleanup_viagens_m_previous
+) unidos
+GROUP BY idViagens
+HAVING count(idViagens) = 1
 </sql>
     <limit>0</limit>
     <lookup />
