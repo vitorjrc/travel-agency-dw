@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>vendasSQL</name>
+    <name>vendasExcel</name>
     <description />
     <extended_description />
     <trans_version />
@@ -548,7 +548,7 @@
   </connection>
   <order>
     <hop>
-      <from>AR Clientes MySQL</from>
+      <from>AR Clientes Excel</from>
       <to>Sort per NIF</to>
       <enabled>Y</enabled>
     </hop>
@@ -568,7 +568,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR Vendas MySQL</from>
+      <from>AR Vendas Excel</from>
       <to>Sort on DIM_IDCliente</to>
       <enabled>Y</enabled>
     </hop>
@@ -618,7 +618,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR NOVAS Viagens MySQL</from>
+      <from>AR NOVAS Viagens Excel</from>
       <to>Database lookup DW Viagens (get sk)</to>
       <enabled>Y</enabled>
     </hop>
@@ -639,7 +639,7 @@
     </hop>
   </order>
   <step>
-    <name>AR Clientes MySQL</name>
+    <name>AR Clientes Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -653,7 +653,7 @@
     <sql>SELECT
   idCliente
 , nif
-FROM ar_cleanup_cliente_s
+FROM ar_cleanup_cliente_e
 </sql>
     <limit>0</limit>
     <lookup />
@@ -674,7 +674,7 @@ FROM ar_cleanup_cliente_s
     </GUI>
   </step>
   <step>
-    <name>AR NOVAS Viagens MySQL</name>
+    <name>AR NOVAS Viagens Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -699,7 +699,7 @@ SELECT
 , paisDest
 , pensao
 , nomeHotel
-FROM ar_cleanup_viagens_s
+FROM ar_cleanup_viagens_e
 UNION ALL
 SELECT
   idViagens
@@ -712,7 +712,7 @@ SELECT
 , paisDest
 , pensao
 , nomeHotel
-FROM ar_cleanup_viagens_s_previous
+FROM ar_cleanup_viagens_e_previous
 ) unidos
 GROUP BY idViagens
 HAVING count(idViagens) = 1</sql>
@@ -735,7 +735,7 @@ HAVING count(idViagens) = 1</sql>
     </GUI>
   </step>
   <step>
-    <name>AR Vendas MySQL</name>
+    <name>AR Vendas Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -753,7 +753,7 @@ HAVING count(idViagens) = 1</sql>
 , `DIM-Clientes_idCliente`
 , `DIM-Viagens_idViagens`
 , `DIM-Calendario_idData`
-FROM ar_cleanup_vendas_s
+FROM ar_cleanup_vendas_e
 </sql>
     <limit>0</limit>
     <lookup />
@@ -1484,12 +1484,12 @@ FROM `dim-clientes`
         <stream_name>DIM-Calendario_idData</stream_name>
       </field>
       <field>
-        <column_name>DIM-Clientes_idCliente</column_name>
-        <stream_name>skCliente</stream_name>
-      </field>
-      <field>
         <column_name>DIM-Viagens_idViagens</column_name>
         <stream_name>skViagem</stream_name>
+      </field>
+      <field>
+        <column_name>DIM-Clientes_idCliente</column_name>
+        <stream_name>skCliente</stream_name>
       </field>
     </fields>
     <cluster_schema />
