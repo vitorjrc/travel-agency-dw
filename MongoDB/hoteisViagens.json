@@ -8,7 +8,7 @@
     "Rua" : "Rua do Estrelicius",
     "Local" : "Local do Estrelicius",
     "CodPostal" : "1111",
-    "Pais" : "Australia",
+    "Pais" : "Austrália",
     "Pensoes" : [ 
         {
         "Codigo" : 1,
@@ -37,7 +37,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2018-02-20T10:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Australia",
+            "Pais_Dest" : "Austrália",
             "Pensao" : "PC"
         },
         {
@@ -49,7 +49,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2018-04-20T10:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Australia",
+            "Pais_Dest" : "Austrália",
             "Pensao" : "PC"
         },
         {
@@ -61,7 +61,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2018-04-20T10:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Australia",
+            "Pais_Dest" : "Austrália",
             "Pensao" : "PC"
         }
     ]
@@ -193,7 +193,7 @@
     "Rua" : "Rua do Toquious",
     "Local" : "Local do Toquious",
     "CodPostal" : "4444",
-    "Pais" : "Japao",
+    "Pais" : "Japão",
     "Pensoes" : [ 
         {
             "Codigo" : 2,
@@ -218,7 +218,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-15T20:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "MP"
         },
         {
@@ -230,7 +230,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2016-11-15T15:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "MP"
         },
         {
@@ -242,7 +242,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-01T20:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "PC"
         },
         {
@@ -254,7 +254,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-01T20:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "PC"
         }
     ]
@@ -268,7 +268,7 @@
     "Rua" : "Rua do Dubaious",
     "Local" : "Local do Dubaious",
     "CodPostal" : "5555",
-    "Pais" : "Emirados Arabes Unidos",
+    "Pais" : "Emirados Árabes Unidos",
     "Pensoes" : [ 
         {
             "Codigo" : 2,
@@ -293,7 +293,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2018-07-01T11:40:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Emirados Arabes Unidos",
+            "Pais_Dest" : "Emirados Árabes Unidos",
             "Pensao" : "PA"
         }
     ]
@@ -307,7 +307,7 @@
     "Rua" : "Rua do Praguious",
     "Local" : "Local do Praguious",
     "CodPostal" : "6666",
-    "Pais" : "Republica Checa",
+    "Pais" : "República Checa",
     "Pensoes" : [ 
         {
             "Codigo" : 2,
@@ -332,7 +332,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-01T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "MP"
         },
         {
@@ -344,7 +344,7 @@
             "Epoca" : "N",
             "Data" : {"$date":"2015-12-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "PC"
         },
         {
@@ -356,7 +356,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2017-02-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "MP"
         },
         {
@@ -368,7 +368,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2017-02-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "MP"
         },
         {
@@ -380,7 +380,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2017-02-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "MP"
         }
     ]

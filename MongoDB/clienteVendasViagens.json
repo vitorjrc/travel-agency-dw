@@ -98,7 +98,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2018-02-20T10:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Australia",
+            "Pais_Dest" : "Austrália",
             "Pensao" : "PC"
             }
         ]
@@ -118,7 +118,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-15T20:00:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "MP"
             }
         ]
@@ -138,7 +138,7 @@
                 "Epoca" : "O",
                 "Data" : {"$date":"2018-04-20T10:00:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Australia",
+                "Pais_Dest" : "Austrália",
                 "Pensao" : "PC"
             },
             {
@@ -150,7 +150,7 @@
                 "Epoca" : "O",
                 "Data" : {"$date":"2018-04-20T10:00:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Australia",
+                "Pais_Dest" : "Austrália",
                 "Pensao" : "PC"
             }
         ]
@@ -197,7 +197,7 @@
             "Epoca" : "O",
             "Data" : {"$date":"2016-11-15T15:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Japao",
+            "Pais_Dest" : "Japão",
             "Pensao" : "MP"
             }
             ]
@@ -217,7 +217,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2018-07-01T11:40:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Emirados Arabes Unidos",
+            "Pais_Dest" : "Emirados Árabes Unidos",
             "Pensao" : "PA"
             }
             ]
@@ -300,7 +300,7 @@
             "Epoca" : "F",
             "Data" : {"$date":"2017-08-01T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "MP"
             }
             ]
@@ -320,7 +320,7 @@
             "Epoca" : "N",
             "Data" : {"$date":"2015-12-20T06:45:00Z"},
             "Pais_Part" : "Portugal",
-            "Pais_Dest" : "Republica Checa",
+            "Pais_Dest" : "República Checa",
             "Pensao" : "PC"
             }
             ]
@@ -379,7 +379,7 @@
                 "Epoca" : "F",
                 "Data" : {"$date":"2017-08-01T20:00:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Japao",
+                "Pais_Dest" : "Japão",
                 "Pensao" : "PC"
             },
             {
@@ -391,7 +391,7 @@
                 "Epoca" : "F",
                 "Data" : {"$date":"2017-08-01T20:00:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Japao",
+                "Pais_Dest" : "Japão",
                 "Pensao" : "PC"
             },
             {
@@ -403,7 +403,7 @@
                 "Epoca" : "O",
                 "Data" : {"$date":"2017-02-20T06:45:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Republica Checa",
+                "Pais_Dest" : "República Checa",
                 "Pensao" : "MP"
             },
             {
@@ -415,7 +415,7 @@
                 "Epoca" : "O",
                 "Data" : {"$date":"2017-02-20T06:45:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Republica Checa",
+                "Pais_Dest" : "República Checa",
                 "Pensao" : "MP"
             },
             {
@@ -427,7 +427,7 @@
                 "Epoca" : "O",
                 "Data" : {"$date":"2017-02-20T06:45:00Z"},
                 "Pais_Part" : "Portugal",
-                "Pais_Dest" : "Republica Checa",
+                "Pais_Dest" : "República Checa",
                 "Pensao" : "MP"
             }
             ]
