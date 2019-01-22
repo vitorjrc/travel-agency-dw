@@ -1,0 +1,23 @@
+Passo a passo:
+
+
+	PREPARAÇÃO:  	1) executar trigger (apenas uma vez depois de criar a AR)
+			   		2) dateDimension.ktr (só se faz uma vez na criação da AR) 
+			   		3) calendario.ktr
+
+	EXTRAÇAO: 		4) mysqlToAR.ktr
+			   		5) excelToAR.ktr
+			   		6) mongoToAR.ktr
+	
+	TRANSFORMAÇAO:  7) excelConformity.ktr
+
+	LOAD: 			8) clientesAndViagens.ktr
+					9) vendasUniqueExcel.ktr
+					10) vendasUniqueMongo.ktr
+					11) vendasUniqueSQL.ktr
+
+	REFRESCAMENTO: 1) vendasPrevious.ktr 
+				   2) truncate.ktr
+				   3) repetir E's
+				   4) teste
+				   3) repetir T-L's
