@@ -367,8 +367,8 @@
         {
         "Numero" : 2,
         "Data" : {"$date":"2016-02-04T18:30:00Z"},
-        "Valor" : 7350,
-        "NrViagens": 5,
+        "Valor" : 5400,
+        "NrViagens": 3,
         "Viagem" : [
             {
                 "Id" : 15,
@@ -393,42 +393,6 @@
                 "Pais_Part" : "Portugal",
                 "Pais_Dest" : "Japão",
                 "Pensao" : "PC"
-            },
-            {
-                "Id" : 17,
-                "Preco_Voo" : 150,
-                "Preco_Hotel" : 500,
-                "Preco_Total" : 650,
-                "Nr_Dias" : 5,
-                "Epoca" : "O",
-                "Data" : {"$date":"2017-02-20T06:45:00Z"},
-                "Pais_Part" : "Portugal",
-                "Pais_Dest" : "República Checa",
-                "Pensao" : "MP"
-            },
-            {
-                "Id" : 18,
-                "Preco_Voo" : 150,
-                "Preco_Hotel" : 500,
-                "Preco_Total" : 650,
-                "Nr_Dias" : 5,
-                "Epoca" : "O",
-                "Data" : {"$date":"2017-02-20T06:45:00Z"},
-                "Pais_Part" : "Portugal",
-                "Pais_Dest" : "República Checa",
-                "Pensao" : "MP"
-            },
-            {
-                "Id" : 19,
-                "Preco_Voo" : 150,
-                "Preco_Hotel" : 500,
-                "Preco_Total" : 650,
-                "Nr_Dias" : 5,
-                "Epoca" : "O",
-                "Data" : {"$date":"2017-02-20T06:45:00Z"},
-                "Pais_Part" : "Portugal",
-                "Pais_Dest" : "República Checa",
-                "Pensao" : "MP"
             }
             ]
         }

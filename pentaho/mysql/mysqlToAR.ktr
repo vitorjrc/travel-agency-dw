@@ -548,17 +548,27 @@
   </connection>
   <order>
     <hop>
-      <from>MySQL Input Clientes</from>
-      <to>MySQL Output Clientes ARet</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>MySQL Input Viagens</from>
       <to>MySQL Output Viagens ARet</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Sort rows per ID</from>
+      <to>Unique rows per ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>MySQL Input Clientes</from>
+      <to>MySQL Output Clientes ARet</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>MySQL Input Vendas</from>
+      <to>Sort rows per ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows per ID</from>
       <to>MySQL Output Vendas ARet</to>
       <enabled>Y</enabled>
     </hop>
@@ -575,7 +585,9 @@
       <schema_name />
     </partitioning>
     <connection>TravelAgency</connection>
-    <sql>SELECT cliente.Id, cliente.Nome, cliente.NIF, cliente.Profissão, localcliente.Designacao FROM cliente JOIN localcliente on cliente.LocalCliente_Id = localcliente.Id</sql>
+    <sql>SELECT cliente.Id, cliente.Nome, cliente.NIF, cliente.Profissão, IFNULL(localcliente.Designacao, "DESCONHECIDO")
+FROM cliente 
+JOIN localcliente on cliente.LocalCliente_Id = localcliente.Id</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -598,7 +610,7 @@
     <name>MySQL Input Vendas</name>
     <type>TableInput</type>
     <description />
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -710,7 +722,7 @@ viagem.Id AS viagemID,
       </field>
       <field>
         <column_name>local</column_name>
-        <stream_name>Designacao</stream_name>
+        <stream_name>IFNULL(localcliente.Designacao, "DESCONHECIDO")</stream_name>
       </field>
     </fields>
     <cluster_schema />
@@ -873,6 +885,81 @@ viagem.Id AS viagemID,
     <GUI>
       <xloc>528</xloc>
       <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows per ID</name>
+    <type>Unique</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field />
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description />
+    <fields>
+      <field>
+        <name>vendaNumero</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows per ID</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>vendaNumero</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -157,40 +157,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `arDW`.`AR_Conformity_Vendas_E`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_Conformity_Vendas_E` (
-  `idVenda` INT NULL,
-  `valor` INT NULL,
-  `nrViagens` INT NULL,
-  `DIM-Clientes_idCliente` INT NULL,
-  `DIM-Viagens_idViagens` INT NULL,
-  `DIM-Calendario_idData` INT NULL)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `arDW`.`AR_Conformity_Viagens_E`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `arDW`.`AR_Conformity_Viagens_E` (
-  `idViagens` INT NULL,
-  `precoVoo` INT NULL,
-  `precoHotel` INT NULL,
-  `precoTotal` INT NULL,
-  `nrDias` INT NULL,
-  `epoca` CHAR NULL,
-  `paisPart` VARCHAR(45) NULL,
-  `paisDest` VARCHAR(45) NULL,
-  `pensao` CHAR(2) NULL,
-  `nomeHotel` VARCHAR(45) NULL)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `arDW`.`AR_DIM_Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Cliente` (
-  `idCliente` INT NULL,
   `nome` VARCHAR(45) NULL,
   `nif` INT NULL,
   `profissao` VARCHAR(45) NULL,
@@ -215,7 +184,6 @@ ENGINE = InnoDB;
 -- Table `arDW`.`AR_DIM_Viagens`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Viagens` (
-  `idViagens` INT NULL,
   `precoVoo` INT NULL,
   `precoHotel` INT NULL,
   `precoTotal` INT NULL,
@@ -242,6 +210,46 @@ CREATE TABLE IF NOT EXISTS `arDW`.`AR_DIM_Calendario` (
   `trimestre` VARCHAR(45) NULL,
   `epoca` VARCHAR(45) NULL,
   `data` DATE NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arDW`.`AR_Cleanup_Vendas_M_Previous`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Vendas_M_Previous` (
+  `idVenda` INT NULL,
+  `valor` INT NULL,
+  `nrViagens` INT NULL,
+  `DIM-Clientes_idCliente` INT NULL,
+  `DIM-Viagens_idViagens` INT NULL,
+  `DIM-Calendario_idData` INT NULL,
+  `dataVenda` DATE NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arDW`.`AR_Cleanup_Vendas_S_Previous`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Vendas_S_Previous` (
+  `idVenda` INT NULL,
+  `valor` INT NULL,
+  `nrViagens` INT NULL,
+  `DIM-Clientes_idCliente` INT NULL,
+  `DIM-Viagens_idViagens` INT NULL,
+  `DIM-Calendario_idData` INT NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arDW`.`AR_Cleanup_Vendas_E_Previous`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arDW`.`AR_Cleanup_Vendas_E_Previous` (
+  `idVenda` INT NULL,
+  `valor` INT NULL,
+  `nrViagens` INT NULL,
+  `DIM-Clientes_idCliente` INT NULL,
+  `DIM-Viagens_idViagens` INT NULL,
+  `DIM-Calendario_idData` INT NULL)
 ENGINE = InnoDB;
 
 

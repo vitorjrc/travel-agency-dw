@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>vendasUniqueSQL</name>
+    <name>vendasUniqueMongo</name>
     <description />
     <extended_description />
     <trans_version />
@@ -548,7 +548,7 @@
   </connection>
   <order>
     <hop>
-      <from>AR Clientes MySQL</from>
+      <from>AR Clientes Mongo</from>
       <to>Sort per NIF, Profissao, Local</to>
       <enabled>Y</enabled>
     </hop>
@@ -613,7 +613,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR Viagens MySQL</from>
+      <from>AR Viagens Mongo</from>
       <to>Database lookup DW Viagens (get sk)</to>
       <enabled>Y</enabled>
     </hop>
@@ -633,7 +633,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR NOVAS Vendas MySQL</from>
+      <from>AR NOVAS Vendas Mongo</from>
       <to>Sort rows per IDVenda</to>
       <enabled>Y</enabled>
     </hop>
@@ -649,7 +649,7 @@
     </hop>
   </order>
   <step>
-    <name>AR Clientes MySQL</name>
+    <name>AR Clientes Mongo</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -665,7 +665,7 @@
 , nif
 , profissao
 , local
-FROM ar_cleanup_cliente_s
+FROM ar_cleanup_cliente_m
 </sql>
     <limit>0</limit>
     <lookup />
@@ -686,7 +686,7 @@ FROM ar_cleanup_cliente_s
     </GUI>
   </step>
   <step>
-    <name>AR NOVAS Vendas MySQL</name>
+    <name>AR NOVAS Vendas Mongo</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -707,7 +707,7 @@ SELECT
 , `DIM-Clientes_idCliente`
 , `DIM-Viagens_idViagens`
 , `DIM-Calendario_idData`
-FROM ar_cleanup_vendas_s
+FROM ar_cleanup_vendas_m
 UNION ALL
 SELECT
   idVenda
@@ -716,7 +716,7 @@ SELECT
 , `DIM-Clientes_idCliente`
 , `DIM-Viagens_idViagens`
 , `DIM-Calendario_idData`
-FROM ar_cleanup_vendas_s_previous
+FROM ar_cleanup_vendas_m_previous
 ) unidos
 GROUP BY idVenda
 HAVING count(idVenda) = 1</sql>
@@ -739,7 +739,7 @@ HAVING count(idVenda) = 1</sql>
     </GUI>
   </step>
   <step>
-    <name>AR Viagens MySQL</name>
+    <name>AR Viagens Mongo</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -753,7 +753,7 @@ HAVING count(idVenda) = 1</sql>
     <sql>SELECT
   idViagens
 , precoVoo
-, precoHotel
+, precoHotal
 , precoTotal
 , nrDias
 , epoca
@@ -761,7 +761,7 @@ HAVING count(idVenda) = 1</sql>
 , paisDest
 , pensao
 , nomeHotel
-FROM ar_cleanup_viagens_s
+FROM ar_cleanup_viagens_m
 </sql>
     <limit>0</limit>
     <lookup />
@@ -846,7 +846,7 @@ FROM `dim-clientes`
         <name2 />
       </key>
       <key>
-        <name>precoHotel</name>
+        <name>precoHotal</name>
         <field>precoHotel</field>
         <condition>=</condition>
         <name2 />

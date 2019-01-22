@@ -19,8 +19,8 @@ limit 0, 5000;
 select * from ardw.ar_cleanup_cliente_s
 limit 0, 5000;
 
--- teste null
-insert into ardw.ar_cleanup_cliente_s values (26, 999999999, "Picheleiro", "Vitoriaaaaa", null);
+-- teste cliente novo
+insert into ardw.ar_cleanup_cliente_s values (26, 999999999, "Picheleiro", "Vitoriaaaaa", "Testazao");
 
 select * from ardw.ar_cleanup_vendas_s
 limit 0, 5000;

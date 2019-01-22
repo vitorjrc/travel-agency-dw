@@ -6,3 +6,6 @@ select * from dwtravelagency.`dim-viagens`;
 
 -- vendas
 select * from dwtravelagency.`tf-vendas`;
+
+-- calendario
+select * from dwtravelagency.`dim-calendario`;

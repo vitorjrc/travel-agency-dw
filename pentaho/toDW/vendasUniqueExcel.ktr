@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>vendasUniqueSQL</name>
+    <name>vendasUniqueExcel</name>
     <description />
     <extended_description />
     <trans_version />
@@ -548,7 +548,7 @@
   </connection>
   <order>
     <hop>
-      <from>AR Clientes MySQL</from>
+      <from>AR Clientes Excel</from>
       <to>Sort per NIF, Profissao, Local</to>
       <enabled>Y</enabled>
     </hop>
@@ -613,7 +613,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR Viagens MySQL</from>
+      <from>AR Viagens Excel</from>
       <to>Database lookup DW Viagens (get sk)</to>
       <enabled>Y</enabled>
     </hop>
@@ -633,7 +633,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR NOVAS Vendas MySQL</from>
+      <from>AR NOVAS Vendas Excel</from>
       <to>Sort rows per IDVenda</to>
       <enabled>Y</enabled>
     </hop>
@@ -649,7 +649,7 @@
     </hop>
   </order>
   <step>
-    <name>AR Clientes MySQL</name>
+    <name>AR Clientes Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -665,7 +665,7 @@
 , nif
 , profissao
 , local
-FROM ar_cleanup_cliente_s
+FROM ar_conformity_cliente_e
 </sql>
     <limit>0</limit>
     <lookup />
@@ -686,7 +686,7 @@ FROM ar_cleanup_cliente_s
     </GUI>
   </step>
   <step>
-    <name>AR NOVAS Vendas MySQL</name>
+    <name>AR NOVAS Vendas Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -707,7 +707,7 @@ SELECT
 , `DIM-Clientes_idCliente`
 , `DIM-Viagens_idViagens`
 , `DIM-Calendario_idData`
-FROM ar_cleanup_vendas_s
+FROM ar_cleanup_vendas_e
 UNION ALL
 SELECT
   idVenda
@@ -716,7 +716,7 @@ SELECT
 , `DIM-Clientes_idCliente`
 , `DIM-Viagens_idViagens`
 , `DIM-Calendario_idData`
-FROM ar_cleanup_vendas_s_previous
+FROM ar_cleanup_vendas_e_previous
 ) unidos
 GROUP BY idVenda
 HAVING count(idVenda) = 1</sql>
@@ -739,7 +739,7 @@ HAVING count(idVenda) = 1</sql>
     </GUI>
   </step>
   <step>
-    <name>AR Viagens MySQL</name>
+    <name>AR Viagens Excel</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -761,7 +761,7 @@ HAVING count(idVenda) = 1</sql>
 , paisDest
 , pensao
 , nomeHotel
-FROM ar_cleanup_viagens_s
+FROM ar_cleanup_viagens_e
 </sql>
     <limit>0</limit>
     <lookup />
@@ -1012,7 +1012,7 @@ FROM `dim-clientes`
     </remotesteps>
     <GUI>
       <xloc>352</xloc>
-      <yloc>176</yloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

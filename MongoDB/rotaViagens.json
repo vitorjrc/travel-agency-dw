@@ -242,42 +242,6 @@
             "Pais_Part" : "Portugal",
             "Pais_Dest" : "República Checa",
             "Pensao" : "PC"
-        },
-        {
-            "Id" : 17,
-            "Preco_Voo" : 150,
-            "Preco_Hotel" : 500,
-            "Preco_Total" : 650,
-            "Nr_Dias" : 5,
-            "Epoca" : "O",
-            "Data" : {"$date":"2017-02-20T06:45:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "República Checa",
-            "Pensao" : "MP"
-        },
-        {
-            "Id" : 18,
-            "Preco_Voo" : 150,
-            "Preco_Hotel" : 500,
-            "Preco_Total" : 650,
-            "Nr_Dias" : 5,
-            "Epoca" : "O",
-            "Data" : {"$date":"2017-02-20T06:45:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "República Checa",
-            "Pensao" : "MP"
-        },
-        {
-            "Id" : 19,
-            "Preco_Voo" : 150,
-            "Preco_Hotel" : 500,
-            "Preco_Total" : 650,
-            "Nr_Dias" : 5,
-            "Epoca" : "O",
-            "Data" : {"$date":"2017-02-20T06:45:00Z"},
-            "Pais_Part" : "Portugal",
-            "Pais_Dest" : "República Checa",
-            "Pensao" : "MP"
         }
     ]
 }
